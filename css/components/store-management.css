@@ -1,0 +1,85 @@
+.store-management-page {
+    padding: 24px;
+    background-color: #f4f4f5;
+    min-height: 100vh;
+    font-family: sans-serif;
+}
+
+.store-management-page__title {
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #333;
+}
+
+.store-management-page__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.store-management-card {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.store-management-card--awaiting {
+    border: 2px solid #facc15; /* Yellow border */
+}
+
+.store-management-card__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between title and badge */
+}
+
+.store-management-card__badge {
+    background-color: #facc15; /* Yellow background for visibility */
+    color: #333;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 10px;
+}
+
+.store-management-card__description {
+    color: #718096;
+    font-size: 0.875rem;
+    margin-bottom: 16px;
+}
+
+.store-management-card__button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    color: white;
+}
+
+.store-management-card__button--blue {
+    background-color: #3b82f6; /* Blue */
+}
+
+.store-management-card__button--blue:hover {
+    background-color: #2563eb;
+}
+
+.store-management-card__button--yellow {
+    background-color: #facc15; /* Yellow */
+    color: #333;
+}
+
+.store-management-card__button--yellow:hover {
+    background-color: #eab308;
+}

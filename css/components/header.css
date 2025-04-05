@@ -1,0 +1,29 @@
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.greeting {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+.header-actions {
+    display: flex;
+    gap: 1rem; /* Space between action icons */
+}
+
+.header-action-btn {
+    color: var(--medium-text);
+    font-size: 1.4rem; /* Size of header icons */
+    transition: color 0.2s ease;
+}
+
+.header-action-btn:hover {
+    color: var(--dark-text);
+}

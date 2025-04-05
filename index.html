@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Dashboard</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/logo.png" alt="Farm Management Logo" class="logo" id="sidebar-logo">
+                <button id="sidebar-toggle" class="sidebar-toggle" aria-controls="sidebar" aria-expanded="true">
+                    <i id="toggle-icon" class="bi bi-x"></i>
+                    <span class="visually-hidden">Toggle Sidebar</span>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-link active">
+                    <i class="bi bi-grid-1x2-fill"></i> <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="bi bi-tractor"></i> <span class="nav-text">My Farm</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="bi bi-cloud-sun"></i> <span class="nav-text">Weather</span>
+                </a>
+                <a href="#" class="nav-link">
+                   <i class="bi bi-people"></i> <span class="nav-text">Cooperatives</span>
+                </a>
+                </nav>
+            <div class="sidebar-footer">
+                 <a href="#" class="nav-link">
+                    <i class="bi bi-gear"></i> <span class="nav-text">Settings</span>
+                </a>
+            </div>
+        </aside>
+
+        <main id="main-content" class="main-content">
+            <header class="main-header">
+                <h2 id="greeting" class="greeting">Loading...</h2> {/* Placeholder */}
+                <div class="header-actions">
+                     <button class="header-action-btn" aria-label="Notifications">
+                       <i class="bi bi-bell"></i>
+                    </button>
+                     <button class="header-action-btn" aria-label="Settings">
+                       <i class="bi bi-gear"></i>
+                    </button>
+                     <button class="header-action-btn" aria-label="User Menu">
+                       <i class="bi bi-person-circle"></i>
+                    </button>
+                </div>
+            </header>
+
+            <section class="weather-profile-section">
+                <div class="card weather-card">
+                    <i id="weather-icon" class="bi weather-icon"></i> {/* Icon class set by JS */}
+                    <h3 id="temperature" class="temperature">--°C</h3> {/* Placeholder */}
+                    <p id="rain-chance">Chance of rain: --%</p>      {/* Placeholder */}
+                    <p id="wind-speed">Wind: --km/hr</p>          {/* Placeholder */}
+                    <p><small id="weather-location">Loading location...</small></p> {/* Placeholder */}
+                </div>
+
+                <div class="card profile-card">
+                    <img id="profile-image" src="assets/farmer-image.jpg" alt="Farmer" class="profile-image"> {/* Default/Placeholder Image */}
+                    <h3 id="profile-name" class="profile-name">Loading...</h3> {/* Placeholder */}
+                    <p id="profile-details">Loading farm details...</p>    {/* Placeholder */}
+                    <p id="profile-coop">Loading cooperative...</p>     {/* Placeholder */}
+                    <button class="btn btn-primary profile-view-btn">View Profile</button>
+                </div>
+            </section>
+
+            <section class="tools-section">
+                <h3 class="section-title">Tools</h3>
+                <div id="tools-grid" class="tools-grid">
+                    </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="js/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+/* General page styling */
+.receipt-generator-page {
+    padding: 2rem;
+    background-color: #f3f4f6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.receipt-generator-page__header {
+    margin-bottom: 1.5rem;
+}
+
+.receipt-generator-page__title {
+    font-size: 2.25rem; /* Slightly larger */
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    color: #374151;
+}
+
+.receipt-generator-page__icon {
+    font-size: 2rem;
+    margin-right: 0.75rem;
+    color: #1e3a8a;
+}
+
+/* Card styling */
+.card.receipt-generator-card {
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    width: 95%;
+    max-width: 960px; /* Increased max width for two columns */
+}
+
+/* Business Information */
+.receipt-generator-card__business-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.receipt-generator-card__logo-placeholder {
+    border: 1px dashed #9ca3af;
+    padding: 1rem;
+    text-align: center;
+    color: #6b7280;
+}
+
+.receipt-generator-card__info-text {
+    padding: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Form Grid Layout */
+.receipt-generator-card__form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Section and Labels */
+.receipt-generator-card__section {
+    margin-bottom: 1rem;
+}
+
+.receipt-generator-card__label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.375rem;
+}
+
+/* Select and Input */
+.receipt-generator-card__select,
+.receipt-generator-card__input {
+    padding: 0.625rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    width: calc(100% - 1.25rem);
+}
+
+/* Items Section */
+.receipt-generator-card__items {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.receipt-generator-card__items-heading {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.75rem;
+}
+
+.receipt-generator-card__items-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr; /* Adjusted column widths */
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.75rem;
+    border-bottom: 1px solid #e5e7eb; /* Bordered rows */
+}
+
+.receipt-generator-card__items-grid--header {
+    font-weight: bold;
+    background-color: #f9fafa; /* Striped background header */
+}
+
+.receipt-generator-card__items-grid:nth-child(even) {
+    background-color: #f9fafa; /* Striped background for even rows */
+}
+
+.receipt-generator-card__item-price {
+    font-weight: bold;
+}
+
+.receipt-generator-card__remove-button {
+    background-color: #dc2626;
+    color: white;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.receipt-generator-card__remove-button:hover {
+    background-color: #b91c1c;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.receipt-generator-card__remove-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(220, 38, 38, 0.5);
+}
+
+.receipt-generator-card__remove-icon {
+    font-size: 1rem;
+}
+
+.receipt-generator-card__add-item-button {
+    margin-top: 1rem;
+    background-color: #16a34a;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.receipt-generator-card__add-item-button:hover {
+    background-color: #15803d;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.receipt-generator-card__add-item-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(22, 163, 74, 0.5);
+}
+
+/* Totals Section Alignment */
+.receipt-generator-card__totals-section {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align to the left */
+    gap: 1rem;
+}
+
+.receipt-generator-card__totals {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align to the left */
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.receipt-generator-card__total,
+.receipt-generator-card__discount,
+.receipt-generator-card__tax {
+    font-size: 1rem;
+}
+
+.receipt-generator-card__total--grand {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+.receipt-generator-card__payment {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align to the left */
+    gap: 0.5rem;
+}
+
+.receipt-generator-card__balance {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #16a34a; /* Green color for balance */
+}
+
+.receipt-generator-card__inline-input {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.receipt-generator-card__input--small {
+    width: 80px;
+}
+
+/* Actions Styling */
+.receipt-generator-card__actions {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-end;
+}
+
+.receipt-generator-card__generate-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Or any color you prefer */
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.receipt-generator-card__generate-button:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+}
+
+/* ... previous CSS ... */
+
+.rejected-documents-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rejected-documents-section__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.rejected-documents-section__tabs {
+    overflow: hidden;
+}
+
+.rejected-documents-section__tab-list {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+
+.rejected-documents-section__tab-button {
+    padding: 10px 15px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: 500;
+    color: #555;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.rejected-documents-section__tab-button.active {
+    color: #333;
+    border-bottom-color: #dc2626; /* Red for rejected */
+}
+
+.rejected-documents-section__tab-button:hover {
+    border-bottom-color: #ccc;
+}
+
+.rejected-documents-section__tab-content {
+    padding: 15px;
+    display: none;
+}
+
+.rejected-documents-section__tab-content.active {
+    display: block;
+}
+
+.rejected-documents-section__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.rejected-documents-section__table th,
+.rejected-documents-section__table td {
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.rejected-documents-section__table th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+.rejected-documents-section__table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.rejected-documents-section__no-records {
+    padding: 10px;
+    text-align: center;
+    color: #777;
+    font-style: italic;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 960px) {
+    .receipt-generator-card__form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .receipt-generator-page {
+        padding: 1rem;
+    }
+    .card.receipt-generator-card {
+        padding: 1.5rem;
+    }
+    .receipt-generator-card__items-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; /* Adjust columns for smaller screens */
+    }
+}

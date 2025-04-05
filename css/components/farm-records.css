@@ -1,0 +1,160 @@
+.farm-records-section {
+    padding: 2rem;
+    background-color: #f3f4f6; /* Equivalent of bg-gray-100 */
+    margin-top: 2rem; /* Add some spacing from the previous section */
+}
+
+.farm-records-section__title {
+    font-size: 1.875rem; /* Approximate for text-3xl */
+    font-weight: 600; /* Approximate for font-semibold */
+    margin-bottom: 1.5rem; /* Approximate for mb-6 */
+    text-align: center;
+    color: #374151; /* Approximate for text-gray-800 */
+}
+
+.farm-records-card {
+    background-color: white; /* Equivalent of bg-white */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Approximate for shadow-lg */
+    border-radius: 0.5rem; /* Approximate for rounded-xl */
+    padding: 1.5rem; /* Approximate for p-6 */
+}
+
+.farm-records-card__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Equivalent of grid-cols-2 */
+    gap: 1.5rem; /* Approximate for gap-6 */
+}
+
+.farm-records-card__item {
+    padding: 1.5rem; /* Approximate for p-6 */
+    border: 1px solid #e5e7eb; /* Approximate for border */
+    border-radius: 0.5rem; /* Approximate for rounded-xl */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Approximate for shadow-sm */
+    transition: box-shadow 0.2s ease-in-out; /* Approximate for transition-shadow */
+    background-color: #f9fafa; /* Approximate for bg-gray-50 */
+}
+
+.farm-records-card__item:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Approximate for hover:shadow-lg */
+}
+
+.farm-records-card__item-title {
+    font-size: 1.125rem; /* Approximate for text-lg */
+    font-weight: 600; /* Approximate for font-semibold */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Approximate for gap-2 */
+    color: #374151; /* Approximate for text-gray-800 */
+    margin-bottom: 1rem;
+}
+
+.farm-records-card__icon--green {
+    color: #16a34a; /* Approximate for text-green-600 */
+    font-size: 1.5rem; /* Approximate for w-6 h-6 */
+}
+
+.farm-records-card__icon--red {
+    color: #dc2626; /* Approximate for text-red-600 */
+    font-size: 1.5rem;
+}
+
+.farm-records-card__icon--blue {
+    color: #2563eb; /* Approximate for text-blue-600 */
+    font-size: 1.5rem;
+}
+
+.farm-records-card__icon--yellow {
+    color: #d9770f; /* Approximate for text-yellow-600 */
+    font-size: 1.5rem;
+}
+
+.farm-records-card__icon--purple {
+    color: #7e22ce; /* Approximate for text-purple-600 */
+    font-size: 1.5rem;
+}
+
+.farm-records-card__item-description {
+    color: #4b5563; /* Approximate for text-gray-600 */
+    font-size: 0.875rem; /* Approximate for text-sm */
+    margin-bottom: 1rem; /* Approximate for mb-4 */
+}
+
+.farm-records-card__item-button {
+    width: 100%; /* Approximate for w-full */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Approximate for justify-between */
+    padding: 1rem; /* Approximate for p-4 */
+    border-radius: 0.5rem; /* Approximate for rounded-lg */
+    color: white; /* Approximate for text-white */
+    font-weight: 500;
+}
+
+.farm-records-card__item-button--green {
+    background-color: #16a34a; /* Approximate for bg-green-600 */
+}
+
+.farm-records-card__item-button--green:hover {
+    background-color: #15803d; /* Approximate for hover:bg-green-700 */
+}
+
+.farm-records-card__item-button--red {
+    background-color: #dc2626; /* Approximate for bg-red-600 */
+}
+
+.farm-records-card__item-button--red:hover {
+    background-color: #b91c1c; /* Approximate for hover:bg-red-700 */
+}
+
+.farm-records-card__item-button--blue {
+    background-color: #2563eb; /* Approximate for bg-blue-600 */
+}
+
+.farm-records-card__item-button--blue:hover {
+    background-color: #1d4ed8; /* Approximate for hover:bg-blue-700 */
+}
+
+.farm-records-card__item-button--yellow {
+    background-color: #d9770f; /* Approximate for bg-yellow-600 */
+}
+
+.farm-records-card__item-button--yellow:hover {
+    background-color: #b45309; /* Approximate for hover:bg-yellow-700 */
+}
+
+.farm-records-card__item-button--purple {
+    background-color: #7e22ce; /* Approximate for bg-purple-600 */
+}
+
+.farm-records-card__item-button--purple:hover {
+    background-color: #581c87; /* Approximate for hover:bg-purple-700 */
+}
+
+.farm-records-card__item--col-span-2 {
+    grid-column: span 2; /* Equivalent of col-span-2 */
+}
+
+@media (max-width: 768px) {
+    .farm-records-section {
+        padding: 1rem;
+    }
+
+    .farm-records-section__title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .farm-records-card__grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .farm-records-card__item--col-span-2 {
+        grid-column: span 1;
+    }
+
+    .farm-records-card__item-button {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,37 @@
+.weather-card {
+    background-color: var(--blue-500);
+    color: var(--primary-text);
+    text-align: center;
+}
+
+.weather-icon {
+    font-size: 3rem; /* Large weather icon */
+    margin-bottom: 1rem;
+}
+
+.temperature {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.weather-card p {
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+    opacity: 0.9;
+}
+
+.weather-card p small {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+/* Container for weather/profile */
+.weather-profile-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 1.5rem; /* Space between cards */
+    margin-bottom: 2rem;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Management</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/store-management.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="store-management-page">
+        <h2 class="store-management-page__title">Store Management</h2>
+
+        <div class="store-management-page__grid">
+            <div class="store-management-card">
+                <h3 class="store-management-card__title">📦 Input Inventory</h3>
+                <p class="store-management-card__description">
+                    Track and manage farming inputs like seeds, fertilizers, and pesticides.
+                </p>
+                <button class="store-management-card__button store-management-card__button--blue" id="manageInputsBtn">
+                    <a href="input-inventory.html" class="store-management-card__button store-management-card__button--blue">Manage Inputs</a>
+                </button>
+            </div>
+
+            <div class="store-management-card">
+                <h3 class="store-management-card__title">🛠️ Tools & Equipment</h3>
+                <p class="store-management-card__description">
+                    Monitor tools and equipment, including purchase value and depreciation tracking.
+                </p>
+                <button class="store-management-card__button store-management-card__button--blue" id="manageToolsBtn">
+                    <a href="tools-equipment.html" class="store-management-card__button store-management-card__button--blue">Manage Tools</a>
+                </button>
+            </div>
+
+            <div class="store-management-card">
+                <h3 class="store-management-card__title">🌾 Produce Inventory</h3>
+                <p class="store-management-card__description">
+                    Manage harvested produce, stock levels, and distribution records.
+                </p>
+                <button class="store-management-card__button store-management-card__button--blue" id="manageProduceBtn">
+                    <a href="produce-inventory.html" class="store-management-card__button store-management-card__button--blue">Manage Produce</a>
+                </button>
+            </div>
+
+            <div class="store-management-card store-management-card--awaiting">
+                <h3 class="store-management-card__title">
+                    📜 Awaiting Confirmation
+                    <span id="pendingCountBadge" class="store-management-card__badge">0</span>
+                </h3>
+                <p class="store-management-card__description">
+                    Review and confirm pending receipts or invoices before adding to inventory.
+                </p>
+                <a href="awaiting-confirmation.html" class="store-management-card__button store-management-card__button--yellow" id="viewPendingBtn">View Pending</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/components/store-management.js"></script>
+</body>
+</html>

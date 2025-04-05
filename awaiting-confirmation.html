@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awaiting Confirmation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/awaiting-confirmation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/components/awaiting-confirmation.js" type="module"></script>
+</head>
+<body>
+    <div class="awaiting-confirmation-page">
+        <h2 class="awaiting-confirmation-page__title">Awaiting Confirmation</h2>
+        <p class="awaiting-confirmation-page__description">Review and confirm pending receipts or invoices before they are added to the inventory.</p>
+
+        <div class="awaiting-confirmation-page__counts">
+            <div class="awaiting-confirmation-page__count">
+                Pending Receipts: <span id="receiptCount">0</span>
+            </div>
+            <div class="awaiting-confirmation-page__count">
+                Pending Invoices: <span id="invoiceCount">0</span>
+            </div>
+        </div>
+
+        <div class="awaiting-confirmation-page__tabs">
+            <div class="awaiting-confirmation-page__tab-list">
+                <button class="awaiting-confirmation-page__tab-button active" data-tab="receipts">Pending Receipts</button>
+                <button class="awaiting-confirmation-page__tab-button" data-tab="invoices">Pending Invoices</button>
+            </div>
+
+            <div class="awaiting-confirmation-page__tab-content active" id="receipts">
+                <table class="awaiting-confirmation-page__table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Category</th>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="receiptTableBody">
+                        <!-- Receipt rows will be added here -->
+                    </tbody>
+                </table>
+                <div id="noReceipts" class="awaiting-confirmation-page__no-records" style="display:none;">No pending receipts.</div>
+            </div>
+
+            <div class="awaiting-confirmation-page__tab-content" id="invoices">
+                <table class="awaiting-confirmation-page__table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Category</th>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoiceTableBody">
+                        <!-- Invoice rows will be added here -->
+                    </tbody>
+                </table>
+                <div id="noInvoices" class="awaiting-confirmation-page__no-records" style="display:none;">No pending invoices.</div>
+            </div>
+        </div>
+
+        <!-- Modal for viewing details -->
+        <div id="detailsModal" class="awaiting-confirmation-page__modal">
+            <div class="awaiting-confirmation-page__modal-content">
+                <span class="awaiting-confirmation-page__modal-close">&times;</span>
+                <h3 id="detailsModalTitle">Details</h3>
+                <div id="detailsModalBody">
+                    <!-- Details will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

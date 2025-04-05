@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Records</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/income.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/components/income.js" type="module"></script>
+</head>
+<body>
+    <div class="income-page">
+        <h2 class="income-page__title">Income Records</h2>
+
+        <div class="income-page__summary">
+            <div class="card">
+                <strong>Total Income:</strong> <span id="totalIncome">$0.00</span>
+            </div>
+        </div>
+
+        <div class="income-page__filters card">
+            <div class="income-page__search">
+                <input type="text" id="searchInput" placeholder="Search by customer, payment, or item">
+            </div>
+            <div class="income-page__date-range">
+                <label for="startDate">Start Date:</label>
+                <input type="date" id="startDate">
+                <label for="endDate">End Date:</label>
+                <input type="date" id="endDate">
+                <button id="filterButton" class="button">Filter</button>
+            </div>
+            <button id="clearFiltersButton" class="button button--secondary">Clear Filters</button>
+        </div>
+
+        <div class="income-page__table-container card">
+            <table class="income-page__table">
+                <thead>
+                    <tr>
+                        <th data-sort="date">Date</th>
+                        <th data-sort="customer">Customer</th>
+                        <th data-sort="total">Total Paid</th>
+                        <th data-sort="payment">Payment Method</th>
+                        <th>Items</th>
+                    </tr>
+                </thead>
+                <tbody id="incomeTableBody">
+                    </tbody>
+            </table>
+            <div id="noDataMessage" class="income-page__no-data" style="display:none;">No income records found.</div>
+        </div>
+
+        <div class="income-page__actions">
+            <button id="exportButton" class="button button--primary">Export Data (CSV)</button>
+        </div>
+    </div>
+</body>
+</html>

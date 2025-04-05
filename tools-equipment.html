@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools/Equipment Inventory</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/components/tools-equipment.css">
+
+</head>
+<body>
+    <div class="container">
+        <h2>🛒 Tools/Equipment Inventory</h2>
+        <div class="add-button-container">
+            <button class="add-button" onclick="addItemHandler()">+ Add Item</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Date of Purchase</th>
+                    <th>Purchase Value (₦)</th>
+                    <th>Current Value (₦)</th>
+                    <th>Expected Useful Life (Years)</th>
+                    <th>Years in Use</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="inventory-body">
+                </tbody>
+            <tfoot id="add-new-item-row" style="display: none;">
+                <tr class="new-item-row">
+                    <td><input type="text" id="newItem-item"> <span class="error-message" id="error-item"></span></td>
+                    <td><input type="number" id="newItem-quantity"> <span class="error-message" id="error-quantity"></span></td>
+                    <td><input type="date" id="newItem-dateOfPurchase"> <span class="error-message" id="error-dateOfPurchase"></span></td>
+                    <td><input type="number" id="newItem-purchaseValue"> <span class="error-message" id="error-purchaseValue"></span></td>
+                    <td>-</td>
+                    <td><input type="number" id="newItem-usefulLife"> <span class="error-message" id="error-usefulLife"></span></td>
+                    <td>-</td>
+                    <td class="add-actions">
+                        <button class="confirm-button" onclick="confirmAddItemHandler()">✔️ Confirm</button>
+                        <span class="cancel-icon" onclick="cancelAddItemHandler()">❌</span>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script src="js/components/tools-equipment.js" type="module"></script>
+</body>
+</html>

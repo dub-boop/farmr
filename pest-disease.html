@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pest & Disease Detection</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/pest-detection.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="pest-detection-page">
+        <h2 class="pest-detection-page__title">Pest & Disease Detection</h2>
+        <p class="pest-detection-page__description">
+            Upload an image of your plant or livestock showing symptoms. Our AI will identify any pests, diseases, or deficiencies and suggest the next steps.
+        </p>
+
+        <div class="pest-detection-page__card">
+            <p class="pest-detection-page__card-title">Upload or capture an image:</p>
+            <input type="file" id="imageUpload" accept="image/*">
+            <img id="imagePreview" src="#" alt="Preview" class="pest-detection-page__image-preview" style="display: none;">
+            <button id="runDiagnosisBtn" class="pest-detection-page__button">Run Diagnosis</button>
+        </div>
+
+        <div id="diagnosisResult" class="pest-detection-page__card pest-detection-page__diagnosis-result" style="display: none;">
+            <h3 class="pest-detection-page__diagnosis-title">Diagnosis Result</h3>
+            <p><strong class="pest-detection-page__result-label">Issue Detected:</strong> <span id="diagnosisIssue"></span></p>
+            <p><strong class="pest-detection-page__result-label">Confidence:</strong> <span id="diagnosisConfidence"></span>%</p>
+            <p><strong class="pest-detection-page__result-label">Suggested Treatment:</strong> <span id="diagnosisRecommendation"></span></p>
+        </div>
+
+        <div class="pest-detection-page__card pest-detection-page__resources">
+            <h4 class="pest-detection-page__resources-title">Helpful Resources</h4>
+            <ul class="pest-detection-page__resources-list">
+                <li>How to identify common pests in cassava</li>
+                <li>Understanding nutrient deficiencies in maize</li>
+                <li>DIY organic pest treatments</li>
+            </ul>
+        </div>
+
+        <div id="errorMessage" class="pest-detection-page__error" style="display: none;"></div>
+        <div id="loadingIndicator" class="pest-detection-page__loading" style="display: none;">Loading...</div>
+    </div>
+
+    <script src="js/components/pest-detection.js"></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/receipt-generator.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/components/receipt-generator.js" type="module"></script>
+</head>
+<body>
+    <div class="receipt-generator-page">
+        <header class="receipt-generator-page__header">
+            <h2 class="receipt-generator-page__title">
+                <i class="fa-solid fa-receipt receipt-generator-page__icon"></i> Receipt Generator
+            </h2>
+        </header>
+        <div class="card receipt-generator-card">
+            <div class="receipt-generator-card__business-info">
+                <div class="receipt-generator-card__section">
+                    <label for="businessLogo" class="receipt-generator-card__label">Business Logo:</label>
+                    <div class="receipt-generator-card__logo-placeholder">[Logo Here]</div>
+                    </div>
+                <div class="receipt-generator-card__section">
+                    <label for="businessName" class="receipt-generator-card__label">Business Name:</label>
+                    <div class="receipt-generator-card__info-text">[Business Name]</div>
+                </div>
+                <div class="receipt-generator-card__section">
+                    <label for="businessAddress" class="receipt-generator-card__label">Address:</label>
+                    <div class="receipt-generator-card__info-text">[Business Address]</div>
+                </div>
+                <div class="receipt-generator-card__section">
+                    <label for="businessPhone" class="receipt-generator-card__label">Phone:</label>
+                    <div class="receipt-generator-card__info-text">[Phone Number]</div>
+                </div>
+            </div>
+
+            <div class="receipt-generator-card__form-grid">
+                <div class="receipt-generator-card__section">
+                    <label for="documentType" class="receipt-generator-card__label">Select Document Type:</label>
+                    <select id="documentType" class="receipt-generator-card__select">
+                        <option value="Receipt">Receipt</option>
+                        <option value="Invoice">Invoice</option>
+                    </select>
+                </div>
+
+                <div class="receipt-generator-card__section">
+                    <label for="documentNumber" class="receipt-generator-card__label">Document Number:</label>
+                    <input type="text" id="documentNumber" class="receipt-generator-card__input" value="" readonly>
+                </div>
+
+                <div class="receipt-generator-card__section">
+                    <label for="category" class="receipt-generator-card__label">Category:</label>
+                    <select id="category" class="receipt-generator-card__select">
+                        <option value="">Select Category</option>
+                        <option value="Crop">Crop</option>
+                        <option value="Livestock">Livestock</option>
+                        <option value="Poultry">Poultry</option>
+                        <option value="Fish">Fish</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+
+                <div class="receipt-generator-card__section">
+                    <label for="customerName" class="receipt-generator-card__label">Customer Name:</label>
+                    <input type="text" id="customerName" class="receipt-generator-card__input" placeholder="Enter customer name">
+                </div>
+
+                <div class="receipt-generator-card__section">
+                    <label for="customerPhone" class="receipt-generator-card__label">Customer Phone:</label>
+                    <input type="tel" id="customerPhone" class="receipt-generator-card__input" placeholder="Enter customer phone number">
+                </div>
+
+                <div class="receipt-generator-card__section">
+                    <label for="paymentMethod" class="receipt-generator-card__label">Payment Method:</label>
+                    <select id="paymentMethod" class="receipt-generator-card__select">
+                        <option>Cash</option>
+                        <option>Bank Transfer</option>
+                        <option>POS Machine</option>
+                    </select>
+                </div>
+
+                <div class="receipt-generator-card__section">
+                    <label for="receiptDate" class="receipt-generator-card__label">Date:</label>
+                    <input type="text" id="receiptDate" class="receipt-generator-card__input" value="" readonly>
+                </div>
+            </div>
+
+            <h3 class="receipt-generator-card__items-heading">Items</h3>
+            <div class="receipt-generator-card__items">
+                <div class="receipt-generator-card__items-grid receipt-generator-card__items-grid--header">
+                    <span>Item Name</span>
+                    <span>Unit</span>
+                    <span>Unit Price</span>
+                    <span>Units Purchased</span>
+                    <span>Price</span>
+                    <span>Action</span>
+                </div>
+                <div id="itemsContainer">
+                    </div>
+                <button id="addItemBtn" class="receipt-generator-card__add-item-button">Add Item</button>
+            </div>
+
+            <div class="receipt-generator-card__totals-section">
+                <div class="receipt-generator-card__totals">
+                    <div class="receipt-generator-card__total">Subtotal: <span id="subtotalAmount">₦0.00</span></div>
+                    <div class="receipt-generator-card__section receipt-generator-card__inline-input">
+                        <label for="discountRate" class="receipt-generator-card__label">Discount (%):</label>
+                        <input type="number" id="discountRate" class="receipt-generator-card__input receipt-generator-card__input--small" value="0">
+                    </div>
+                    <div class="receipt-generator-card__discount">Discount: <span id="discountAmount">₦0.00</span></div>
+                    <div class="receipt-generator-card__section receipt-generator-card__inline-input">
+                        <label for="taxRate" class="receipt-generator-card__label">Tax (%):</label>
+                        <input type="number" id="taxRate" class="receipt-generator-card__input receipt-generator-card__input--small" value="0">
+                    </div>
+                    <div class="receipt-generator-card__tax">Tax: <span id="taxAmount">₦0.00</span></div>
+                    <div class="receipt-generator-card__total receipt-generator-card__total--grand">Total: <span id="totalAmount">₦0.00</span></div>
+                </div>
+                <div class="receipt-generator-card__payment">
+                    <div class="receipt-generator-card__section">
+                        <label for="amountPaid" class="receipt-generator-card__label">Amount Paid:</label>
+                        <input type="number" id="amountPaid" class="receipt-generator-card__input" value="0">
+                    </div>
+                    <div class="receipt-generator-card__balance">Balance: <span id="balanceAmount">₦0.00</span></div>
+                </div>
+            </div>
+
+            <div class="receipt-generator-card__actions">
+                <button id="generateBtn" class="receipt-generator-card__generate-button">Generate Document</button>
+            </div>
+            
+            <section class="rejected-documents-section">
+                <h2 class="rejected-documents-section__title">Rejected Receipts & Invoices</h2>
+                <div class="rejected-documents-section__tabs">
+                    <div class="rejected-documents-section__tab-list">
+                        <button class="rejected-documents-section__tab-button active" data-tab="rejectedReceipts">Rejected Receipts</button>
+                        <button class="rejected-documents-section__tab-button" data-tab="rejectedInvoices">Rejected Invoices</button>
+                    </div>
+    
+                    <div class="rejected-documents-section__tab-content active" id="rejectedReceipts">
+                        <table class="rejected-documents-section__table">
+                            <thead>
+                                <tr>
+                                    <th>Document #</th>
+                                    <th>Date</th>
+                                    <th>Total Amount</th>
+                                    <th>Reason for Rejection</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rejectedReceiptTableBody">
+                                <!-- Rejected receipt rows will be added here -->
+                            </tbody>
+                        </table>
+                        <div id="noRejectedReceipts" class="rejected-documents-section__no-records" style="display:none;">No rejected receipts.</div>
+                    </div>
+    
+                    <div class="rejected-documents-section__tab-content" id="rejectedInvoices">
+                        <table class="rejected-documents-section__table">
+                            <thead>
+                                <tr>
+                                    <th>Document #</th>
+                                    <th>Date</th>
+                                    <th>Total Amount</th>
+                                    <th>Reason for Rejection</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rejectedInvoiceTableBody">
+                                <!-- Rejected invoice rows will be added here -->
+                            </tbody>
+                        </table>
+                        <div id="noRejectedInvoices" class="rejected-documents-section__no-records" style="display:none;">No rejected invoices.</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

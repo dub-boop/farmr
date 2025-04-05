@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Records</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/farm-records.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="app-container">
+        <main class="main-content">
+            <section class="farm-records-section">
+                <h2 class="farm-records-section__title">Farm Records</h2>
+                <div class="card farm-records-card">
+                    <div class="farm-records-card__grid">
+                        <div class="farm-records-card__item">
+                            <h3 class="farm-records-card__item-title">
+                                <i class="fa-solid fa-coins farm-records-card__icon--green"></i> Income
+                            </h3>
+                            <p class="farm-records-card__item-description">Track all farm-related earnings, including product sales and other revenue sources.</p>
+                            <button class="farm-records-card__item-button farm-records-card__item-button--green">
+                                <a href="income.html" class="farm-records-card__item-button">
+                                    <span>View Income</span>
+                                    <span>→</span>
+                                </a>
+                            </button>
+                        </div>
+
+                        <div class="farm-records-card__item">
+                            <h3 class="farm-records-card__item-title">
+                                <i class="fa-solid fa-file-text farm-records-card__icon--red"></i> Expenditure
+                            </h3>
+                            <p class="farm-records-card__item-description">Monitor and log all expenses, such as seeds, equipment, labor, and other costs.</p>
+                            <button class="farm-records-card__item-button farm-records-card__item-button--red">
+                                <a href="expenditure.html" class="farm-records-card__item-button">
+                                    <span>View Expenditure</span>
+                                    <span>→</span>
+                                </a>
+                            </button>
+                        </div>
+
+                        <div class="farm-records-card__item">
+                            <h3 class="farm-records-card__item-title">
+                                <i class="fa-solid fa-industry farm-records-card__icon--blue"></i> Production Record
+                            </h3>
+                            <p class="farm-records-card__item-description">Keep records of farm production, including crop yields, livestock growth, and harvests.</p>
+                            <button class="farm-records-card__item-button farm-records-card__item-button--blue">
+                                <a href="production-record.html" class="farm-records-card__item-button">
+                                    <span>View Production Record</span>
+                                    <span>→</span>
+                                </a>
+                            </button>
+                        </div>
+
+                        <div class="farm-records-card__item">
+                            <h3 class="farm-records-card__item-title">
+                                <i class="fa-solid fa-warehouse farm-records-card__icon--yellow"></i> Farm Inventory
+                            </h3>
+                            <p class="farm-records-card__item-description">Manage stock levels of farming inputs, tools, harvested produce, and other assets.</p>
+                            <button class="farm-records-card__item-button farm-records-card__item-button--yellow">
+                                <a href="farm-inventory.html" class="farm-records-card__item-button">
+                                    <span>View Farm Inventory</span>
+                                    <span>→</span>
+                                </a>
+                            </button>
+                        </div>
+
+                        <div class="farm-records-card__item farm-records-card__item--col-span-2">
+                            <h3 class="farm-records-card__item-title">
+                                <i class="fa-solid fa-chart-line farm-records-card__icon--purple"></i> Profit/Loss Report
+                            </h3>
+                            <p class="farm-records-card__item-description">Analyze financial performance by comparing income and expenses to determine profitability.</p>
+                            <button class="farm-records-card__item-button farm-records-card__item-button--purple">
+                                <a href="profit-loss-report.html" class="farm-records-card__item-button">
+                                    <span>View Profit/Loss Report</span>
+                                    <span>→</span>
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="js/components/farm-records.js"></script>
+</body>
+</html>
