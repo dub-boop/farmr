@@ -54,5 +54,5 @@
   background-color: var(--background-color);
   /* Adjust margin-left to the width of your sidebar */
   /* You'll need to determine the actual width from your sidebar.css */
-  margin-left: /* Replace with your sidebar width, e.g., */ 250px;
+  margin-left: /* Replace with your sidebar width, e.g., */ 25px;
 }
