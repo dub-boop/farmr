@@ -36,18 +36,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const actionsCell = row.insertCell();
 
             if (item.isNew) {
-                itemCell.innerHTML = `<input type="text" class="inputs-management-page__input-field" value="${item.item || ''}" data-id="${item.id}" data-field="item" placeholder="Item Name">`;
-                quantityCell.innerHTML = `<input type="number" class="inputs-management-page__input-field" value="${item.quantity || ''}" data-id="${item.id}" data-field="quantity" placeholder="Quantity">`;
+                itemCell.innerHTML = `<input type="text" class="inputs-management-page__input-field new-item-input" value="${item.item || ''}" data-id="${item.id}" data-field="item" placeholder="Item Name">`;
+                quantityCell.innerHTML = `<input type="number" class="inputs-management-page__input-field new-item-input" value="${item.quantity || ''}" data-id="${item.id}" data-field="quantity" placeholder="Quantity">`;
                 unitCell.innerHTML = `
-                    <select class="inputs-management-page__select-field" data-id="${item.id}" data-field="unit">
+                    <select class="inputs-management-page__select-field new-item-input" data-id="${item.id}" data-field="unit">
                         <option value="">Select unit</option>
                         <option value="kg" ${item.unit === 'kg' ? 'selected' : ''}>kg</option>
                         <option value="bags" ${item.unit === 'bags' ? 'selected' : ''}>bags</option>
                         <option value="liters" ${item.unit === 'liters' ? 'selected' : ''}>liters</option>
                         <option value="cartons" ${item.unit === 'cartons' ? 'selected' : ''}>cartons</option>
                     </select>`;
-                dateOfReceiptCell.innerHTML = `<input type="date" class="inputs-management-page__input-field" value="${item.dateOfReceipt || ''}" data-id="${item.id}" data-field="dateOfReceipt">`;
-                bestBeforeCell.innerHTML = `<input type="date" class="inputs-management-page__input-field" value="${item.bestBefore || ''}" data-id="${item.id}" data-field="bestBefore">`;
+                dateOfReceiptCell.innerHTML = `<input type="date" class="inputs-management-page__input-field new-item-input" value="${item.dateOfReceipt || ''}" data-id="${item.id}" data-field="dateOfReceipt">`;
+                bestBeforeCell.innerHTML = `<input type="date" class="inputs-management-page__input-field new-item-input" value="${item.bestBefore || ''}" data-id="${item.id}" data-field="bestBefore">`;
                 actionsCell.innerHTML = `
                     <button class="inputs-management-page__button inputs-management-page__button--primary save-new-btn" data-id="${item.id}">Save</button>
                     <button class="inputs-management-page__delete-button delete-new-btn" data-id="${item.id}"><i class="fa-solid fa-trash-can"></i></button>
@@ -62,14 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Event listeners for new item actions
-        document.querySelectorAll('.save-new-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const id = parseInt(this.dataset.id);
-                const row = Array.from(inventoryTableBody.rows).find(row => {
-                    const input = row.querySelector(`input[data-id="${id}"]`);
-                    return input !== null;
-                });
+        // Event delegation for save and delete new item buttons
+        inventoryTableBody.addEventListener('click', function(event) {
+            if (event.target.classList.contains('save-new-btn')) {
+                const id = parseInt(event.target.dataset.id);
+                const row = event.target.closest('tr');
                 if (row) {
                     const itemInput = row.querySelector(`input[data-field="item"]`);
                     const quantityInput = row.querySelector(`input[data-field="quantity"]`);
@@ -82,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             return {
                                 ...invItem,
                                 item: itemInput.value,
-                                quantity: parseInt(quantityInput.value),
+                                quantity: parseInt(quantityInput.value) || 0,
                                 unit: unitSelect.value,
                                 dateOfReceipt: dateOfReceiptInput.value,
                                 bestBefore: bestBeforeInput.value,
@@ -94,22 +91,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     isAddingNew = false;
                     renderInventory();
                 }
-            });
-        });
-
-        document.querySelectorAll('.delete-new-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const id = parseInt(this.dataset.id);
+            } else if (event.target.classList.contains('delete-new-btn')) {
+                const id = parseInt(event.target.dataset.id);
                 inventory = inventory.filter(item => item.id !== id);
                 isAddingNew = false;
                 renderInventory();
-            });
-        });
-
-        // Event listeners for stock out buttons
-        document.querySelectorAll('.stock-out-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const itemId = parseInt(this.dataset.itemId);
+            } else if (event.target.classList.contains('stock-out-btn')) {
+                const itemId = parseInt(event.target.dataset.itemId);
                 selectedItem = inventory.find(item => item.id === itemId);
                 if (selectedItem) {
                     stockOutQuantityInput.value = '';
@@ -119,13 +107,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     movementDateInput.value = '';
                     stockOutModal.style.display = 'block';
                 }
-            });
+            }
         });
     }
 
     addNewBtn.addEventListener('click', () => {
         if (!isAddingNew) {
-            inventory = [...inventory, { id: Date.now(), item: "", quantity: "", unit: "", dateOfReceipt: "", bestBefore: "", isNew: true }];
+            inventory = [...inventory, { id: Date.now(), item: "", quantity: 0, unit: "", dateOfReceipt: "", bestBefore: "", isNew: true }];
             isAddingNew = true;
             renderInventory();
         }
