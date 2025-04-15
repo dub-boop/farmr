@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: "expert", iconClass: "bi-telephone", text: "Call an Expert", bgColorClass: "bg-gray", url: "call-expert.html" },
         { id: "market", iconClass: "bi-graph-up", text: "Market Price Tracker", bgColorClass: "bg-yellow", url: "market-tracker.html" },
         { id: "pests", iconClass: "bi-bug", text: "Pest & Disease", bgColorClass: "bg-red", url: "pest-disease.html" },
-        { id: "satellite", iconClass: "bi-broadcast-pin", text: "Satellite Data", bgColorClass: "bg-blue", url: "satellite-data.html" },
+        { id: "satellite", iconClass: "bi-broadcast-pin", text: "Satellite Data", bgColorClass: "bg-blue", url: "satellite-drone.html" },
         { id: "support", iconClass: "bi-building-check", text: "Gov/NGO Support", bgColorClass: "bg-purple", url: "support-programs.html" },
         { id: "store", iconClass: "bi-shop", text: "Store Management", bgColorClass: "bg-orange", url: "store-management.html" }
     ];

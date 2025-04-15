@@ -1,0 +1,249 @@
+/* css/components/satellite-drone.css */
+.satellite-drone-page {
+    padding: 20px;
+    background-color: #f7f7f7;
+    min-height: 100vh;
+    width: 150%;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.satellite-drone-page__title {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.satellite-drone-page__title .fa-satellite {
+    margin-right: 10px;
+    color: #3b82f6; /* Blue color */
+}
+
+.satellite-drone-page__card {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 900px;
+    box-sizing: border-box;
+}
+
+.satellite-drone-page__card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.satellite-drone-page__overview-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: center;
+}
+
+.satellite-drone-page__map-placeholder {
+    background-color: #e5e7eb; /* Gray-200 */
+    height: 150px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #6b7280; /* Gray-600 */
+    font-size: 1em;
+}
+
+.satellite-drone-page__map-placeholder .fa-map-pin {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.satellite-drone-page__overview-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.satellite-drone-page__button {
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid transparent;
+}
+
+.satellite-drone-page__button--primary {
+    background-color: #3b82f6; /* Blue-600 */
+    color: white;
+    border-color: #3b82f6;
+}
+
+.satellite-drone-page__button--primary:hover {
+    background-color: #2563eb; /* Blue-700 */
+}
+
+.satellite-drone-page__button--outline {
+    background-color: transparent;
+    color: #374151; /* Gray-700 */
+    border-color: #6b7280; /* Gray-600 */
+}
+
+.satellite-drone-page__button--outline:hover {
+    background-color: #f9fafb; /* Gray-50 */
+}
+
+.satellite-drone-page__button--success {
+    background-color: #16a34a; /* Green-600 */
+    color: white;
+    border-color: #16a34a;
+}
+
+.satellite-drone-page__button--success:hover {
+    background-color: #15803d; /* Green-700 */
+}
+
+.satellite-drone-page__request-form {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f3f4f6; /* Gray-100 */
+    border-radius: 6px;
+}
+
+.satellite-drone-page__request-form-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #374151; /* Gray-700 */
+}
+
+.satellite-drone-page__request-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.satellite-drone-page__label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: medium;
+    color: #374151; /* Gray-700 */
+}
+
+.satellite-drone-page__input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d1d5db; /* Gray-300 */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.satellite-drone-page__imagery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.satellite-drone-page__imagery-item {
+    background-color: #f9fafb; /* Gray-50 */
+    padding: 15px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.satellite-drone-page__image-placeholder {
+    background-color: #e5e7eb; /* Gray-200 */
+    height: 100px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: #6b7280; /* Gray-600 */
+    margin-bottom: 10px;
+}
+
+.satellite-drone-page__image-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #374151; /* Gray-700 */
+}
+
+.satellite-drone-page__button--analyze {
+    background-color: #16a34a; /* Green-600 */
+    color: white;
+    border-color: #16a34a;
+    width: 80%;
+    margin-top: 10px;
+}
+
+.satellite-drone-page__button--analyze:hover {
+    background-color: #15803d; /* Green-700 */
+}
+
+.satellite-drone-page__analysis-result {
+    margin-top: 10px;
+    text-align: left;
+    color: #374151; /* Gray-700 */
+    font-size: 0.9em;
+}
+
+.satellite-drone-page__loading-text {
+    color: #3b82f6; /* Blue-600 */
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+.satellite-drone-page__graph-placeholder {
+    background-color: #e5e7eb; /* Gray-200 */
+    height: 150px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #6b7280; /* Gray-600 */
+    font-size: 1em;
+}
+
+.satellite-drone-page__graph-placeholder .fa-chart-line {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.satellite-drone-page__recommendations-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #374151; /* Gray-700 */
+    line-height: 1.6;
+}
+
+.satellite-drone-page__submission-message {
+    margin-top: 10px;
+    color: #16a34a; /* Green-600 */
+    font-weight: bold;
+}
+
+.satellite-drone-page__submission-error {
+    margin-top: 10px;
+    color: #dc2626; /* Red-600 */
+    font-weight: bold;
+}
+
+.satellite-drone-page__submission-loading {
+    margin-top: 10px;
+    color: #3b82f6; /* Blue-600 */
+    font-weight: bold;
+}

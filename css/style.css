@@ -12,6 +12,8 @@
 @import './components/income.css';
 @import './components/tools-equipment.css';
 @import './components/pest-disease.css';
+@import './components/satellite-drone.css';
+@import './components/inputs-management.css';
 
 /* General Layout */
 .dashboard-container {
