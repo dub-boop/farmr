@@ -11,11 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const movementTypeSelect = document.getElementById('movementType');
     const invoiceOrReceiptNumberInput = document.getElementById('invoiceOrReceiptNumber');
     const movementDateInput = document.getElementById('movementDate');
+    const stockOutErrorDiv = document.getElementById('stockOutError');
+    const newItemErrorDiv = document.getElementById('newItemError');
 
     let inventory = [
-        { id: 1, item: "Maize Seeds", quantity: 50, unit: "kg", dateOfReceipt: "2025-03-15", bestBefore: "2025-09-15" },
-        { id: 2, item: "Fertilizer", quantity: 20, unit: "bags", dateOfReceipt: "2025-03-10", bestBefore: "2026-03-10" },
-        { id: 3, item: "Pesticides", quantity: 15, unit: "liters", dateOfReceipt: "2025-03-20", bestBefore: "2026-03-20" }
+        { id: 1, item: "Maize Seeds", quantity: 50, unit: "kg", dateOfReceipt: "2025-03-15", productionDate: "2024-12-01", bestBefore: "2025-09-15" },
+        { id: 2, item: "Fertilizer", quantity: 20, unit: "bags", dateOfReceipt: "2025-03-10", productionDate: "2025-01-15", bestBefore: "2026-03-10" },
+        { id: 3, item: "Pesticides", quantity: 15, unit: "liters", dateOfReceipt: "2025-03-20", productionDate: "2025-02-20", bestBefore: "2026-03-20" }
     ];
     let selectedItem = null;
     let isAddingNew = false;
@@ -32,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const quantityCell = row.insertCell();
             const unitCell = row.insertCell();
             const dateOfReceiptCell = row.insertCell();
+            const productionDateCell = row.insertCell();
             const bestBeforeCell = row.insertCell();
             const actionsCell = row.insertCell();
 
@@ -47,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <option value="cartons" ${item.unit === 'cartons' ? 'selected' : ''}>cartons</option>
                     </select>`;
                 dateOfReceiptCell.innerHTML = `<input type="date" class="inputs-management-page__input-field new-item-input" value="${item.dateOfReceipt || ''}" data-id="${item.id}" data-field="dateOfReceipt">`;
+                productionDateCell.innerHTML = `<input type="date" class="inputs-management-page__input-field new-item-input" value="${item.productionDate || ''}" data-id="${item.id}" data-field="productionDate">`;
                 bestBeforeCell.innerHTML = `<input type="date" class="inputs-management-page__input-field new-item-input" value="${item.bestBefore || ''}" data-id="${item.id}" data-field="bestBefore">`;
                 actionsCell.innerHTML = `
                     <button class="inputs-management-page__button inputs-management-page__button--primary save-new-btn" data-id="${item.id}">Save</button>
@@ -57,12 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 quantityCell.textContent = item.quantity;
                 unitCell.textContent = item.unit;
                 dateOfReceiptCell.textContent = item.dateOfReceipt;
+                productionDateCell.textContent = item.productionDate;
                 bestBeforeCell.textContent = item.bestBefore;
                 actionsCell.innerHTML = `<button class="inputs-management-page__button inputs-management-page__button--primary stock-out-btn" data-item-id="${item.id}">Stock Out</button>`;
             }
         });
 
-        // Event delegation for save and delete new item buttons
         inventoryTableBody.addEventListener('click', function(event) {
             if (event.target.classList.contains('save-new-btn')) {
                 const id = parseInt(event.target.dataset.id);
@@ -72,17 +76,45 @@ document.addEventListener('DOMContentLoaded', () => {
                     const quantityInput = row.querySelector(`input[data-field="quantity"]`);
                     const unitSelect = row.querySelector(`select[data-field="unit"]`);
                     const dateOfReceiptInput = row.querySelector(`input[data-field="dateOfReceipt"]`);
+                    const productionDateInput = row.querySelector(`input[data-field="productionDate"]`);
                     const bestBeforeInput = row.querySelector(`input[data-field="bestBefore"]`);
 
+                    const itemValue = itemInput.value.trim();
+                    const quantityValue = quantityInput.value.trim();
+                    const unitValue = unitSelect.value;
+                    const dateOfReceiptValue = dateOfReceiptInput.value;
+                    const productionDateValue = productionDateInput.value;
+                    const bestBeforeValue = bestBeforeInput.value;
+
+                    if (!itemValue || !quantityValue || !unitValue || !dateOfReceiptValue || !productionDateValue || !bestBeforeValue) {
+                        newItemErrorDiv.textContent = 'Please fill in all the fields.';
+                        newItemErrorDiv.style.display = 'block';
+                        return;
+                    }
+
+                    if (new Date(bestBeforeValue) <= new Date(productionDateValue)) {
+                        newItemErrorDiv.textContent = 'Best Before date must be after Production Date.';
+                        newItemErrorDiv.style.display = 'block';
+                        return;
+                    }
+
+                    if (new Date(productionDateValue) > new Date(dateOfReceiptValue)) {
+                        newItemErrorDiv.textContent = 'Production Date cannot be after Date of Receipt.';
+                        newItemErrorDiv.style.display = 'block';
+                        return;
+                    }
+
+                    newItemErrorDiv.style.display = 'none';
                     inventory = inventory.map(invItem => {
                         if (invItem.id === id) {
                             return {
                                 ...invItem,
-                                item: itemInput.value,
-                                quantity: parseInt(quantityInput.value) || 0,
-                                unit: unitSelect.value,
-                                dateOfReceipt: dateOfReceiptInput.value,
-                                bestBefore: bestBeforeInput.value,
+                                item: itemValue,
+                                quantity: parseInt(quantityValue) || 0,
+                                unit: unitValue,
+                                dateOfReceipt: dateOfReceiptValue,
+                                productionDate: productionDateValue,
+                                bestBefore: bestBeforeValue,
                                 isNew: false
                             };
                         }
@@ -105,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     movementTypeSelect.value = '';
                     invoiceOrReceiptNumberInput.value = '';
                     movementDateInput.value = '';
+                    stockOutErrorDiv.style.display = 'none';
                     stockOutModal.style.display = 'block';
                 }
             }
@@ -113,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addNewBtn.addEventListener('click', () => {
         if (!isAddingNew) {
-            inventory = [...inventory, { id: Date.now(), item: "", quantity: 0, unit: "", dateOfReceipt: "", bestBefore: "", isNew: true }];
+            inventory = [...inventory, { id: Date.now(), item: "", quantity: 0, unit: "", dateOfReceipt: "", productionDate: "", bestBefore: "", isNew: true }];
             isAddingNew = true;
             renderInventory();
         }
@@ -124,16 +157,30 @@ document.addEventListener('DOMContentLoaded', () => {
     closeStockOutModalBtn.addEventListener('click', () => {
         stockOutModal.style.display = 'none';
         selectedItem = null;
+        stockOutErrorDiv.style.display = 'none';
     });
 
     confirmStockOutBtn.addEventListener('click', () => {
         if (selectedItem) {
-            const quantityToRemove = parseInt(stockOutQuantityInput.value);
+            const quantityToRemove = stockOutQuantityInput.value;
+            const removalReason = removalReasonSelect.value;
+            const movementType = movementTypeSelect.value;
+            const invoiceOrReceiptNumber = invoiceOrReceiptNumberInput.value;
+            const movementDate = movementDateInput.value;
+
+            if (!quantityToRemove || !removalReason || !movementType || !invoiceOrReceiptNumber || !movementDate) {
+                stockOutErrorDiv.style.display = 'block';
+                return;
+            }
+
+            const quantityToRemoveInt = parseInt(quantityToRemove);
             const currentQuantity = selectedItem.quantity;
-            if (!isNaN(quantityToRemove) && quantityToRemove > 0 && quantityToRemove <= currentQuantity) {
+
+            if (!isNaN(quantityToRemoveInt) && quantityToRemoveInt > 0 && quantityToRemoveInt <= currentQuantity) {
                 // In a real application, you would handle the stock out logic here
-                alert(`Stocked out ${quantityToRemove} of ${selectedItem.item}`);
+                alert(`Stocked out ${quantityToRemoveInt} of ${selectedItem.item}`);
                 stockOutModal.style.display = 'none';
+                stockOutErrorDiv.style.display = 'none';
                 // For this example, we won't update the inventory quantity
             } else {
                 alert('Please enter a valid quantity to remove.');

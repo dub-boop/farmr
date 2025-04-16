@@ -21,6 +21,7 @@
                 <button class="inputs-management-page__button inputs-management-page__button--success">Export Data</button>
                 <input type="text" id="searchInput" placeholder="Search items..." class="inputs-management-page__search-input">
             </div>
+            <div id="newItemError" class="inputs-management-page__error" style="color: red; margin-bottom: 10px; display: none;"></div>
             <table class="inputs-management-page__table">
                 <thead>
                     <tr class="inputs-management-page__table-header">
@@ -28,6 +29,7 @@
                         <th>Quantity</th>
                         <th>Units</th>
                         <th>Date of Receipt</th>
+                        <th>Production Date</th>
                         <th>Best Before</th>
                         <th>Actions</th>
                     </tr>
@@ -56,6 +58,7 @@
                 </select>
                 <input type="text" id="invoiceOrReceiptNumber" placeholder="Invoice/Receipt Number" class="inputs-management-page__input">
                 <input type="date" id="movementDate" class="inputs-management-page__input">
+                <div id="stockOutError" class="inputs-management-page__modal-error" style="color: red; margin-top: 10px; display: none;">Please fill in all the fields.</div>
                 <div class="inputs-management-page__modal-footer">
                     <button id="confirmStockOutBtn" class="inputs-management-page__button inputs-management-page__button--primary">Confirm</button>
                     <button id="closeStockOutModalBtn" class="inputs-management-page__button inputs-management-page__button--secondary">Cancel</button>
