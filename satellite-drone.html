@@ -8,113 +8,113 @@
     <link rel="stylesheet" href="css/components/satellite-drone.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+    </head>
 <body>
     <div class="satellite-drone-page">
         <h2 class="satellite-drone-page__title">
             <i class="fa-solid fa-satellite text-blue"></i> Satellite & Drone Analytics
         </h2>
 
-        <div class="satellite-drone-page__card">
-            <h3 class="satellite-drone-page__card-title">Farm Overview</h3>
-            <div class="satellite-drone-page__overview-grid">
-                <div class="satellite-drone-page__map-placeholder">
-                    <i class="fa-solid fa-map-pin text-gray"></i>
-                    <p>Interactive Farm Map View</p>
-                </div>
-                <div class="satellite-drone-page__overview-actions">
-                    <button class="satellite-drone-page__button satellite-drone-page__button--outline">Toggle Satellite/Drone View</button>
-                    <button class="satellite-drone-page__button satellite-drone-page__button--primary" id="requestFlyoverBtn">Request Drone Flyover</button>
-                    <button class="satellite-drone-page__button satellite-drone-page__button--outline">
-                        <i class="fa-solid fa-upload"></i> Upload Drone Image
-                    </button>
-                </div>
+        <div class="tabs">
+            <div class="tabs__list">
+                <button class="tabs__trigger active" data-tab="analytics">Satellite/Drone Analytics</button>
+                <button class="tabs__trigger" data-tab="probes">Sensor Probe Insights</button>
             </div>
 
-            <div id="requestForm" class="satellite-drone-page__request-form" style="display: none;">
-                <h4 class="satellite-drone-page__request-form-title">Request Drone Flyover</h4>
-                <div class="satellite-drone-page__request-form-grid">
-                    <div>
-                        <label class="satellite-drone-page__label">Preferred Date</label>
-                        <input type="date" id="flyoverDate" class="satellite-drone-page__input">
+            <div id="analytics" class="tabs__content active">
+                 <div class="satellite-drone-page__card">
+                    <h3 class="satellite-drone-page__card-title">
+                         <i class="fa-solid fa-image text-green"></i> Recent Imagery & Analysis
+                    </h3>
+                    <div class="satellite-drone-page__imagery-items">
+                        </div>
+
+                    <div class="satellite-drone-page__request-section">
+                         <h4 class="satellite-drone-page__request-title">
+                             <i class="fa-solid fa-upload"></i> Request Drone Flyover
+                         </h4>
+                         <button id="showRequestFormBtn" class="satellite-drone-page__button satellite-drone-page__button--success">Request Flyover</button>
+
+                         <div id="flyoverRequestForm" class="satellite-drone-page__request-form" style="display: none;">
+                             <h5 class="satellite-drone-page__request-form-title">Fill Request Details</h5>
+                             <div class="satellite-drone-page__request-form-grid">
+                                 <div>
+                                     <label class="satellite-drone-page__label">Preferred Date</label>
+                                     <input type="date" id="requestDate" class="satellite-drone-page__input">
+                                 </div>
+                                 <div>
+                                     <label class="satellite-drone-page__label">Purpose/Reason</label>
+                                     <input type="text" id="requestReason" placeholder="e.g., pest inspection" class="satellite-drone-page__input">
+                                 </div>
+                                  <div>
+                                      <label class="satellite-drone-page__label">Location</label>
+                                      <input type="text" id="requestLocation" placeholder="e.g., North Field" class="satellite-drone-page__input">
+                                  </div>
+                             </div>
+                             <button id="submitFlyoverRequestBtn" class="satellite-drone-page__button satellite-drone-page__button--primary">Submit Request</button>
+                             <div id="requestSubmissionMessage" class="satellite-drone-page__message" style="display: none;"></div>
+                             <div id="requestSubmissionError" class="satellite-drone-page__error" style="display: none;"></div>
+                             <div id="requestSubmissionLoading" class="satellite-drone-page__loading" style="display: none;">Submitting...</div>
+                         </div>
+                         <div id="submittedRequestDisplay" class="satellite-drone-page__submitted-request" style="display: none;"></div>
                     </div>
-                    <div>
-                        <label class="satellite-drone-page__label">Purpose/Reason</label>
-                        <input type="text" id="flyoverReason" placeholder="e.g., pest inspection, growth check" class="satellite-drone-page__input">
-                    </div>
-                </div>
-                <button id="submitRequestBtn" class="satellite-drone-page__button satellite-drone-page__button--success">Submit Request</button>
-                <div id="submissionMessage" class="satellite-drone-page__submission-message" style="display: none;"></div>
-                <div id="submissionError" class="satellite-drone-page__submission-error" style="display: none;"></div>
-                <div id="submissionLoading" class="satellite-drone-page__submission-loading" style="display: none;">Submitting...</div>
+                 </div>
+            </div>
+
+            <div id="probes" class="tabs__content">
+                 <div class="satellite-drone-page__card">
+                    <h3 class="satellite-drone-page__card-title">
+                         <i class="fa-solid fa-thermometer text-blue"></i> Sensor Probe Insights
+                    </h3>
+                     <div class="satellite-drone-page__sensor-actions">
+                         <button id="addSensorBtn" class="satellite-drone-page__button satellite-drone-page__button--primary"><i class="fa-solid fa-plus"></i> Add Sensor</button>
+                         <button id="exportPdfBtn" class="satellite-drone-page__button satellite-drone-page__button--secondary"><i class="fa-solid fa-download"></i> Export PDF</button>
+                         <button id="exportCsvBtn" class="satellite-drone-page__button satellite-drone-page__button--secondary"><i class="fa-solid fa-download"></i> Export CSV</button>
+                     </div>
+                     <div id="sensorError" class="satellite-drone-page__error" style="display: none;"></div>
+                     <div id="sensorLoading" class="satellite-drone-page__loading" style="display: none;">Loading Sensor Data...</div>
+                     <div id="sensorDataList">
+                         <table class="satellite-drone-page__sensor-table">
+                             <thead>
+                                 <tr>
+                                     <th>Location</th>
+                                     <th>Moisture</th>
+                                     <th>Nutrients</th>
+                                     <th>Temperature</th>
+                                     <th>pH</th>
+                                     <th>Timestamp</th>
+                                     <th>Actions</th>
+                                 </tr>
+                             </thead>
+                             <tbody id="sensorTableBody">
+                                 </tbody>
+                         </table>
+                         <div id="noSensorData" class="satellite-drone-page__no-data" style="display: none;">No sensor data available. Try adding new sensors.</div>
+                     </div>
+
+                     <div class="satellite-drone-page__card-section">
+                         <h4 class="satellite-drone-page__section-title">
+                             <i class="fa-solid fa-chart-line text-blue"></i> Sensor Trends
+                         </h4>
+                          <div class="satellite-drone-page__chart-placeholder">
+                             <i class="fa-solid fa-chart-line text-gray"></i>
+                             <p>Graph of Sensor Data</p>
+                             </div>
+                     </div>
+                 </div>
             </div>
         </div>
 
-        <div class="satellite-drone-page__card">
-            <h3 class="satellite-drone-page__card-title">Recent Imagery & Analysis</h3>
-            <div class="satellite-drone-page__imagery-grid">
-                <div class="satellite-drone-page__imagery-item">
-                    <div class="satellite-drone-page__image-placeholder">
-                        <i class="fa-solid fa-image text-gray"></i>
-                    </div>
-                    <p class="satellite-drone-page__image-title">Aerial Image 1</p>
-                    <div id="analysisResult1" class="satellite-drone-page__analysis-result" style="display: none;">
-                        <p><strong>Vegetation Health:</strong> <span id="health1"></span></p>
-                        <p><strong>Dry Patches:</strong> <span id="dry1"></span></p>
-                        <p><strong>Pest Indicators:</strong> <span id="pest1"></span></p>
-                        <p><strong>Soil Anomalies:</strong> <span id="soil1"></span></p>
-                    </div>
-                    <p id="loading1" class="satellite-drone-page__loading-text" style="display: none;">Analyzing...</p>
-                    <button class="satellite-drone-page__button satellite-drone-page__button--analyze" data-index="0">Analyze</button>
-                </div>
-                <div class="satellite-drone-page__imagery-item">
-                    <div class="satellite-drone-page__image-placeholder">
-                        <i class="fa-solid fa-image text-gray"></i>
-                    </div>
-                    <p class="satellite-drone-page__image-title">Aerial Image 2</p>
-                    <div id="analysisResult2" class="satellite-drone-page__analysis-result" style="display: none;">
-                        <p><strong>Vegetation Health:</strong> <span id="health2"></span></p>
-                        <p><strong>Dry Patches:</strong> <span id="dry2"></span></p>
-                        <p><strong>Pest Indicators:</strong> <span id="pest2"></span></p>
-                        <p><strong>Soil Anomalies:</strong> <span id="soil2"></span></p>
-                    </div>
-                    <p id="loading2" class="satellite-drone-page__loading-text" style="display: none;">Analyzing...</p>
-                    <button class="satellite-drone-page__button satellite-drone-page__button--analyze" data-index="1">Analyze</button>
-                </div>
-                <div class="satellite-drone-page__imagery-item">
-                    <div class="satellite-drone-page__image-placeholder">
-                        <i class="fa-solid fa-image text-gray"></i>
-                    </div>
-                    <p class="satellite-drone-page__image-title">Aerial Image 3</p>
-                    <div id="analysisResult3" class="satellite-drone-page__analysis-result" style="display: none;">
-                        <p><strong>Vegetation Health:</strong> <span id="health3"></span></p>
-                        <p><strong>Dry Patches:</strong> <span id="dry3"></span></p>
-                        <p><strong>Pest Indicators:</strong> <span id="pest3"></span></p>
-                        <p><strong>Soil Anomalies:</strong> <span id="soil3"></span></p>
-                    </div>
-                    <p id="loading3" class="satellite-drone-page__loading-text" style="display: none;">Analyzing...</p>
-                    <button class="satellite-drone-page__button satellite-drone-page__button--analyze" data-index="2">Analyze</button>
-                </div>
-            </div>
-        </div>
+         <div class="satellite-drone-page__card">
+             <h3 class="satellite-drone-page__card-title">Insights & Recommendations</h3>
+             <ul class="satellite-drone-page__recommendations-list">
+                 <li>Pest activity detected in North-East sector. Apply treatment immediately.</li>
+                 <li>Dry patches in South zone — suggest irrigation.</li>
+                 <li>Healthy growth observed in Central area. No action needed.</li>
+             </ul>
+             <button class="satellite-drone-page__button satellite-drone-page__button--success">Download Full Report</button>
+         </div>
 
-        <div class="satellite-drone-page__card">
-            <h3 class="satellite-drone-page__card-title">Trends Over Time</h3>
-            <div class="satellite-drone-page__graph-placeholder">
-                <i class="fa-solid fa-chart-line text-gray"></i>
-                <p>Graph of Vegetation, Moisture & Health Index</p>
-            </div>
-        </div>
-
-        <div class="satellite-drone-page__card">
-            <h3 class="satellite-drone-page__card-title">Insights & Recommendations</h3>
-            <ul class="satellite-drone-page__recommendations-list">
-                <li>Pest activity detected in North-East sector. Apply treatment immediately.</li>
-                <li>Dry patches in South zone — suggest irrigation.</li>
-                <li>Healthy growth observed in Central area. No action needed.</li>
-            </ul>
-            <button class="satellite-drone-page__button satellite-drone-page__button--success">Download Full Report</button>
-        </div>
     </div>
 
     <script src="js/components/satellite-drone.js"></script>

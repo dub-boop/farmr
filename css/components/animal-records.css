@@ -1,0 +1,142 @@
+/* css/components/animal-records.css */
+.animal-records-page {
+    padding: 20px;
+    background-color: #f7f7f7;
+    min-height: 100vh;
+    font-family: sans-serif;
+}
+
+.animal-records-page__title {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.animal-records-page__filter {
+    margin-bottom: 20px;
+    text-align: center; /* Center the filter section */
+}
+
+.animal-records-page__filter-label {
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.animal-records-page__dropdown {
+    position: relative;
+    display: inline-block; /* Align inline with label potentially */
+    width: 250px; /* Fixed width for the dropdown */
+}
+
+.animal-records-page__dropdown-button {
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Rounded corners */
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1em;
+}
+
+.animal-records-page__dropdown-button i {
+    color: #666;
+}
+
+.animal-records-page__dropdown-list {
+    position: absolute;
+    top: 100%; /* Position below the button */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* More prominent shadow */
+    margin-top: 5px;
+    border-radius: 8px; /* Rounded corners */
+    list-style: none;
+    padding: 0;
+    z-index: 10; /* Ensure dropdown is above other content */
+    max-height: 200px; /* Limit height and add scroll if needed */
+    overflow-y: auto;
+}
+
+.animal-records-page__dropdown-list li {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    border-bottom: 1px solid #eee; /* Separator */
+}
+
+.animal-records-page__dropdown-list li:last-child {
+    border-bottom: none; /* No border for the last item */
+}
+
+.animal-records-page__dropdown-list li:hover {
+    background-color: #f3f4f6; /* Gray-100 on hover */
+}
+
+.animal-records-page__card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    max-width: 900px; /* Limit card grid width */
+    margin: 0 auto; /* Center the card grid */
+}
+
+.animal-records-page__card {
+     /* Card styles inherited from style.css or defined here */
+     padding: 20px; /* Example padding */
+     background-color: #fff; /* Example background */
+     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Example shadow */
+     border-radius: 8px; /* Example border-radius */
+}
+
+.animal-records-page__card-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.animal-records-page__card-description {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.animal-records-page__button {
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid transparent;
+    background-color: #10b981; /* Example green color */
+    color: white;
+}
+
+.animal-records-page__button:hover {
+    background-color: #059669; /* Darker green on hover */
+}
+
+/* Ensure card sections are hidden by default and managed by JS */
+.poultry-records-section,
+.egg-production-section,
+.livestock-records-section,
+.breeding-health-section {
+    display: none;
+}
+
+/* Add a class to show them */
+.show-section {
+    display: block; /* Or flex, grid depending on desired layout */
+}

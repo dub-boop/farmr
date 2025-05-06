@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const toolsData = [
-        { id: "livestock", iconClass: "bi-calendar-check", text: "Livestock Planner", bgColorClass: "bg-green", url: "livestock-planner.html" },
+        { id: "livestock", iconClass: "bi-calendar-check", text: "Livestock Planner", bgColorClass: "bg-green", url: "animal-records.html" },
         { id: "cropping", iconClass: "bi-flower1", text: "Cropping Planner", bgColorClass: "bg-green", url: "cropping-planner.html" },
         { id: "records", iconClass: "bi-journal-text", text: "Farm Records", bgColorClass: "bg-green", url: "farm-records.html" },
         { id: "receipts", iconClass: "bi-receipt", text: "Receipt Generator", bgColorClass: "bg-green", url: "receipt-generator.html" },

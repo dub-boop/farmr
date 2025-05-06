@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livestock Records</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/livestock-records.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="livestock-records-page">
+        <h1 class="livestock-records-page__title"></h1>
+        <div class="livestock-records-page__content card">
+             <button id="addNewRecordBtn" class="button button--primary" style="margin-bottom: 20px;"><i class="fa-solid fa-plus"></i> Add New Record</button> {/* Added button */}
+            <p id="loadingRecords" style="display: none;">Loading records...</p>
+            <p id="noRecordsMessage" style="display: none;">No records found for this livestock type.</p>
+            <table class="livestock-records-page__table" id="recordsTable" style="display: none;">
+                 <thead>
+                     <tr>
+                         <th>Actions</th> </tr>
+                 </thead>
+                 <tbody id="recordsTableBody">
+                     </tbody>
+            </table>
+        </div>
+    </div>
+
+    {/* Updated comment */}
+    <div id="editRecordModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 id="modalTitle">Edit Record</h3> {/* Title will be updated by JS */}
+            <form id="editRecordForm">
+                {/* ID field is only for editing, hidden for adding */}
+                <div class="form-group" id="modalIdField" style="display: none;"> {/* Added ID and hidden */}
+                    <label for="editRecordId">ID:</label>
+                    <input type="text" id="editRecordId" disabled>
+                </div>
+                 <div class="form-fields-container">
+                     {/* Dynamic form fields will be added here by JS */}
+                 </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="saveRecordBtn" class="button button--primary">Save Changes</button> {/* Button text updated by JS */}
+                    <button type="button" id="cancelEditBtn" class="button button--secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="js/components/livestock-records.js"></script>
+</body>
+</html>
