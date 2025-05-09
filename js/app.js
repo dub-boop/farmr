@@ -208,6 +208,23 @@ function renderTools(tools) {
         //       just for navigation, because standard <a> tags with an href
         //       handle navigation automatically when clicked by the browser.
     });
+        
+    // JavaScript to handle the toggle functionality//
+    document.addEventListener("DOMContentLoaded", () => {
+        const sidebarToggle = document.getElementById("sidebar-toggle");
+        const sidebar = document.getElementById("sidebar");
+        const toggleIcon = document.getElementById("toggle-icon");
+    
+        sidebarToggle.addEventListener("click", () => {
+            const isExpanded = sidebarToggle.getAttribute("aria-expanded") === "true";
+            sidebarToggle.setAttribute("aria-expanded", !isExpanded);
+            sidebar.classList.toggle("hidden");
+    
+            // Change icon based on state
+            toggleIcon.classList.toggle("bi-list");
+            toggleIcon.classList.toggle("bi-x");
+        });
+    });
 }
 
 

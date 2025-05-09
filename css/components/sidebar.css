@@ -5,13 +5,19 @@
     padding: 1.5rem 1rem; /* Adjust padding */
     display: flex;
     flex-direction: column;
-    transition: width 0.3s ease;
+    transition: transform 0.3s ease, width 0.3s ease;
     flex-shrink: 0; /* Prevent shrinking */
     height: 100vh; /* Full height */
+    position: fixed; /* Ensure it stays fixed on the screen */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it appears above other elements */
+    overflow-y: auto; /* Allow scrolling within the sidebar */
 }
 
 .sidebar.collapsed {
     width: var(--sidebar-width-collapsed);
+    transform: translateX(-100%); /* Hide sidebar when collapsed */
 }
 
 .sidebar-header {
@@ -44,6 +50,8 @@
     border: none;
     padding: 0.5rem; /* Easier click target */
     margin-left: auto; /* Push toggle right when logo visible */
+    cursor: pointer;
+    display: none; /* Hide by default */
 }
 
 .sidebar.collapsed .sidebar-toggle {
@@ -109,4 +117,29 @@
 
 .sidebar-footer {
     margin-top: auto; /* Push footer to bottom */
+}
+
+/* Media Query for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%); /* Hide sidebar by default on smaller screens */
+        width: var(--sidebar-width-expanded); /* Ensure full width when visible */
+    }
+
+    .sidebar.collapsed {
+        transform: translateX(-100%); /* Keep hidden when collapsed */
+    }
+
+    .sidebar-toggle {
+        display: block; /* Show hamburger menu */
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        z-index: 1100; /* Ensure it appears above the sidebar */
+    }
+
+    .main-content {
+        margin-left: 0; /* No margin when sidebar is hidden */
+        width: 100%; /* Full width for main content */
+    }
 }

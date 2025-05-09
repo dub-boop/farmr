@@ -19,13 +19,16 @@
 .dashboard-container {
     display: flex; /* Full height of the viewport */
     overflow: hidden; /* Prevent scrollbars on the container */
+    width: 100%;
 }
 
 .main-content {
-    flex-grow: 1; /* Takes remaining space */
-    overflow-y: auto; /* Allow scrolling only in main content */
-    padding: 2rem; /* Padding around main content */
-    background-color: var(--background-color); /* Use variable from base.css */
+  flex-grow: 1;
+  margin-left: var(--sidebar-width-expanded); /* Adjust to match sidebar width */
+  overflow-y: auto;
+  padding: 2rem;
+  background-color: var(--background-color);
+  transition: margin-left 0.3s ease; /* Smooth transition for margin */
 }
 
 /* Utility for visually hidden text (for accessibility) */
@@ -46,15 +49,37 @@
   top: 0;
   left: 0;
   height: 100vh;
-  /* Add any other existing styles for your sidebar */
+  width: var(--sidebar-width-expanded); /* Adjust to your sidebar width */
+  background-color: var(--primary-green);
+  color: var(--primary-text);
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000; /* Ensure it appears above other elements */
+  overflow-y: auto; /* Allow scrolling within the sidebar */
+  transition: width 0.3s ease; /* Smooth transition for width changes */
+}
+
+.sidebar.hidden {
+    transform: none; /* Hidden state */
+}
+
+/* Hamburger Menu Styles */
+.sidebar-toggle {
+  display: none;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(0); /* Ensure the sidebar is visible */
+}
+
+.sidebar-toggle {
+    display: none; /* Hide hamburger menu since the sidebar is visible */
 }
 
 .main-content {
-  flex-grow: 1;
-  overflow-y: auto;
-  padding: 2rem;
-  background-color: var(--background-color);
-  /* Adjust margin-left to the width of your sidebar */
-  /* You'll need to determine the actual width from your sidebar.css */
-  margin-left: /* Replace with your sidebar width, e.g., */ 25px;
+    margin-left: var(--sidebar-width-expanded); /* Adjust to match sidebar width */
+}
 }
