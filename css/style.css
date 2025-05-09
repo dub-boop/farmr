@@ -29,57 +29,62 @@
   padding: 2rem;
   background-color: var(--background-color);
   transition: margin-left 0.3s ease; /* Smooth transition for margin */
+  width: 100%;
 }
 
-/* Utility for visually hidden text (for accessibility) */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
 
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: var(--sidebar-width-expanded); /* Adjust to your sidebar width */
-  background-color: var(--primary-green);
-  color: var(--primary-text);
-  padding: 1.5rem 1rem;
-  display: flex;
-  flex-direction: column;
-  z-index: 1000; /* Ensure it appears above other elements */
-  overflow-y: auto; /* Allow scrolling within the sidebar */
-  transition: width 0.3s ease; /* Smooth transition for width changes */
+   position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: var(--sidebar-width-expanded); /* Adjust to your sidebar width */
+    background-color: var(--primary-green);
+    color: var(--primary-text);
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000; /* Ensure it appears above other elements */
+    overflow-y: auto; /* Allow scrolling within the sidebar */
+    transform: translateX(100); /* Ensure the sidebar is visible by default */
+    transition: transform 0.3s ease, width 0.3s ease; /* Smooth transition for visibility */
 }
 
 .sidebar.hidden {
-    transform: none; /* Hidden state */
+    transform: translateX(-100%); /* Hidden state */
 }
 
 /* Hamburger Menu Styles */
 .sidebar-toggle {
   display: none;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1100; /* Ensure it appears above the sidebar */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(0); /* Ensure the sidebar is visible */
-}
+ .sidebar {
+        transform: translateX(-100%); /* Hide sidebar by default */
+        width: var(--sidebar-width-expanded); /* Ensure full width when visible */
+    }
 
-.sidebar-toggle {
-    display: none; /* Hide hamburger menu since the sidebar is visible */
-}
+    .sidebar.hidden {
+        transform: translateX(-100%); /* Keep hidden when collapsed */
+    }
 
-.main-content {
-    margin-left: var(--sidebar-width-expanded); /* Adjust to match sidebar width */
-}
+    .sidebar-toggle {
+        display: fixed; /* Show toggle button */
+        top: 1rem;
+    }
+
+    .main-content {
+        margin-left: 0; /* No margin when sidebar is hidden */
+        width: 100%; /* Full width for main content */
+    }
 }

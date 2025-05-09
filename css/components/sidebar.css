@@ -13,6 +13,7 @@
     left: 0;
     z-index: 1000; /* Ensure it appears above other elements */
     overflow-y: auto; /* Allow scrolling within the sidebar */
+    transform: translateX(100);
 }
 
 .sidebar.collapsed {
@@ -51,7 +52,7 @@
     padding: 0.5rem; /* Easier click target */
     margin-left: auto; /* Push toggle right when logo visible */
     cursor: pointer;
-    display: none; /* Hide by default */
+    display: fixed; /* Hide by default */
 }
 
 .sidebar.collapsed .sidebar-toggle {
@@ -131,7 +132,7 @@
     }
 
     .sidebar-toggle {
-        display: block; /* Show hamburger menu */
+        display: fixed; 
         position: absolute;
         top: 1rem;
         left: 1rem;
