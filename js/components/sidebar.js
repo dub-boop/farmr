@@ -1,58 +1,60 @@
 const sidebar = document.getElementById('sidebar');
-const sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
+const sidebarToggle = document.getElementById('sidebar-toggle'); // Corrected ID
+const mainContent = document.getElementById('main-content'); // Added mainContent
 const sidebarNav = document.getElementById('sidebarNav');
 
 const navigationItems = [
-    { icon: 'fa-solid fa-tractor', text: 'Dashboard' },
-    { icon: 'fa-solid fa-cloud-sun', text: 'My Farm' },
-    { icon: 'fa-solid fa-bell', text: 'Weather' },
-    { icon: 'fa-solid fa-gear', text: 'Cooperatives' },
+    { icon: 'bi bi-grid-1x2-fill', text: 'Dashboard' }, // Updated icon class
+    { icon: 'bi bi-tractor', text: 'My Farm' }, // Updated icon class
+    { icon: 'bi bi-cloud-sun', text: 'Weather' }, // Updated icon class
+    { icon: 'bi bi-people', text: 'Cooperatives' }, // Updated icon class
 ];
 
 function renderSidebarNav() {
     const navItemsHTML = navigationItems.map(item => `
-        <button class="sidebar__nav-item">
-            <i class="<span class="math-inline">\{item\.icon\}"\></i\> <span\></span>{item.text}</span>
-        </button>
+        <a href="#" class="nav-link">
+            <i class="${item.icon}"></i> <span>${item.text}</span>
+        </a>
     `).join('');
     sidebarNav.innerHTML = navItemsHTML;
 }
 
-export function initializeSidebar() {
+function initializeSidebar() {
     renderSidebarNav();
 
-    sidebarToggleBtn.addEventListener('click', () => {
-        console.log('Sidebar toggle button clicked!');
-        sidebar.classList.toggle('sidebar--collapsed');
+    // Function to set the initial state and handle resize
+    function setInitialState() {
         if (window.innerWidth <= 768) {
-            sidebar.classList.toggle('sidebar--open');
-            const isOpen = sidebar.classList.contains('sidebar--open');
-            sidebarToggleBtn.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+            sidebar.classList.add('hidden'); // Hide sidebar
+            sidebarToggle.innerHTML = '<i class="bi bi-list"></i>'; // Hamburger icon
+            mainContent.style.marginLeft = '0'; // Adjust main content
         } else {
-            const isCollapsed = sidebar.classList.contains('sidebar--collapsed');
-            sidebarToggleBtn.innerHTML = isCollapsed ? '<i class="fa-solid fa-bars"></i>' : '<i class="fa-solid fa-xmark"></i>';
+            sidebar.classList.remove('hidden'); // Show sidebar
+            sidebarToggle.innerHTML = '<i class="bi bi-x"></i>'; // Close icon (optional)
+            mainContent.style.marginLeft = 'var(--sidebar-width-expanded)'; // Adjust main content
+        }
+    }
+
+    // Set initial state on page load
+    setInitialState();
+
+    // Handle sidebar toggle
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('hidden');
+        const isOpen = !sidebar.classList.contains('hidden');
+        sidebarToggle.innerHTML = isOpen ? '<i class="bi bi-x"></i>' : '<i class="bi bi-list"></i>';
+
+        // Adjust main content margin dynamically
+        if (isOpen) {
+            mainContent.style.marginLeft = 'var(--sidebar-width-expanded)';
+        } else {
+            mainContent.style.marginLeft = '0';
         }
     });
 
-    // Initial mobile setup
-    if (window.innerWidth <= 768) {
-        sidebar.classList.remove('sidebar--collapsed');
-        sidebarToggleBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
-        document.querySelector('.header__icons .header__icon:last-child').addEventListener('click', () => {
-            sidebar.classList.toggle('sidebar--open');
-        });
-    } else {
-        sidebar.classList.add('sidebar--open'); // Ensure open on desktop initially
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-    const sidebarToggle = document.getElementById("sidebar-toggle");
-    const sidebar = document.getElementById("sidebar");
-
-    sidebarToggle.addEventListener("click", () => {
-        sidebar.classList.toggle("hidden");
-        const isOpen = !sidebar.classList.contains("hidden");
-        sidebarToggle.innerHTML = isOpen ? '<i class="bi bi-x"></i>' : '<i class="bi bi-list"></i>';
-    });
-});
+    // Handle window resize
+    window.addEventListener('resize', setInitialState);
 }
+
+// Initialize the sidebar
+document.addEventListener('DOMContentLoaded', initializeSidebar);

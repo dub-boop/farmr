@@ -1,8 +1,5 @@
 // Wait for the DOM to be fully loaded before running scripts
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize sidebar functionality
-    initSidebar();
-
     // --- Define Dynamic Data (Simulated API Responses) ---
 
     const userProfile = {
@@ -45,59 +42,54 @@ document.addEventListener('DOMContentLoaded', () => {
     renderProfile(userProfile);
     renderTools(toolsData);
 
-    // Add other initializations if needed
+    // --- Initialize sidebar functionality ---
+    initSidebar();
 });
 
-// --- Sidebar Logic (Unchanged from previous example) ---
+// --- Sidebar Logic ---
 function initSidebar() {
     const sidebar = document.getElementById('sidebar');
-    const toggleButton = document.getElementById('sidebar-toggle');
-    const toggleIcon = document.getElementById('toggle-icon');
-    const logo = document.getElementById('sidebar-logo');
+    const sidebarToggle = document.getElementById('sidebar-toggle'); // Corrected ID
     const mainContent = document.getElementById('main-content');
 
-    if (!sidebar || !toggleButton || !toggleIcon || !logo || !mainContent) {
+    if (!sidebar || !sidebarToggle || !mainContent) {
         console.error("Sidebar elements not found!");
         return;
     }
 
-    const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
-    if (isCollapsed) {
-        sidebar.classList.add('collapsed');
-        toggleIcon.classList.remove('bi-x');
-        toggleIcon.classList.add('bi-list');
-        toggleButton.setAttribute('aria-expanded', 'false');
-        // Initial margin adjustment on load
-        mainContent.style.transition = 'none'; // Disable transition during initial load adjustment
-        mainContent.style.marginLeft = getComputedStyle(document.documentElement).getPropertyValue('--sidebar-width-collapsed');
-        setTimeout(() => mainContent.style.transition = '', 0); // Re-enable transition shortly after
-
-    } else {
-         mainContent.style.marginLeft = getComputedStyle(document.documentElement).getPropertyValue('--sidebar-width-expanded');
+    // Function to set the initial state and handle resize
+    function setInitialState() {
+        if (window.innerWidth <= 768) {
+            sidebar.classList.add('hidden'); // Hide sidebar
+            sidebarToggle.innerHTML = '<i class="bi bi-list"></i>'; // Hamburger icon
+            mainContent.style.marginLeft = '0'; // Adjust main content
+        } else {
+            sidebar.classList.remove('hidden'); // Show sidebar
+            sidebarToggle.innerHTML = ''; // Remove icon (or set to a close icon if desired)
+            mainContent.style.marginLeft = 'var(--sidebar-width-expanded)'; // Adjust main content
+        }
     }
 
+    // Set initial state on page load
+    setInitialState();
 
-    toggleButton.addEventListener('click', () => {
-        const currentlyCollapsed = sidebar.classList.toggle('collapsed');
-        localStorage.setItem('sidebarCollapsed', currentlyCollapsed);
+    // Handle sidebar toggle
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('hidden');
+        const isOpen = !sidebar.classList.contains('hidden');
+        sidebarToggle.innerHTML = isOpen ? '<i class="bi bi-x"></i>' : '<i class="bi bi-list"></i>';
 
-        // Add transition to margin change
-        mainContent.style.transition = 'margin-left 0.3s ease';
-
-        if (currentlyCollapsed) {
-            toggleIcon.classList.remove('bi-x');
-            toggleIcon.classList.add('bi-list');
-            toggleButton.setAttribute('aria-expanded', 'false');
-            mainContent.style.marginLeft = getComputedStyle(document.documentElement).getPropertyValue('--sidebar-width-collapsed');
+        // Adjust main content margin dynamically
+        if (isOpen) {
+            mainContent.style.marginLeft = 'var(--sidebar-width-expanded)';
         } else {
-            toggleIcon.classList.remove('bi-list');
-            toggleIcon.classList.add('bi-x');
-            toggleButton.setAttribute('aria-expanded', 'true');
-            mainContent.style.marginLeft = getComputedStyle(document.documentElement).getPropertyValue('--sidebar-width-expanded');
+            mainContent.style.marginLeft = '0';
         }
     });
-}
 
+    // Handle window resize
+    window.addEventListener('resize', setInitialState);
+}
 
 // --- Header Logic ---
 function renderGreeting(user, hour) {
@@ -208,54 +200,4 @@ function renderTools(tools) {
         //       just for navigation, because standard <a> tags with an href
         //       handle navigation automatically when clicked by the browser.
     });
-        
-    // JavaScript to handle the toggle functionality//
-   document.addEventListener('DOMContentLoaded', () => {
-    const sidebarToggle = document.getElementById('sidebar-toggle');
-    const sidebar = document.getElementById('sidebar');
-    const mainContent = document.getElementById('main-content');
-
-    sidebarToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('hidden');
-        const isOpen = !sidebar.classList.contains('hidden');
-        sidebarToggle.innerHTML = isOpen ? '<i class="bi bi-x"></i>' : '<i class="bi bi-list"></i>';
-
-        // Adjust main content margin dynamically
-        if (isOpen) {
-            mainContent.style.marginLeft = 'var(--sidebar-width-expanded)';
-        } else {
-            mainContent.style.marginLeft = '0';
-        }
-    });
-
-    // Set initial state based on screen size
-    function setInitialState() {
-        if (window.innerWidth <= 768) {
-            sidebar.classList.add('hidden');
-            sidebarToggle.innerHTML = '<i class="bi bi-list"></i>';
-            mainContent.style.marginLeft = '0';
-        } else {
-            sidebar.classList.remove('hidden');
-            sidebarToggle.innerHTML = '<i class="bi bi-list"></i>'; // or any other default icon
-            mainContent.style.marginLeft = 'var(--sidebar-width-expanded)';
-        }
-    }
-
-    // Call setInitialState on load
-    setInitialState();
-
-    // Call setInitialState on resize
-    window.addEventListener('resize', setInitialState);
-});
 }
-
-
-// --- CSS Files (No changes needed from previous static version) ---
-// css/style.css
-// css/components/base.css
-// css/components/sidebar.css
-// css/components/header.css
-// css/components/weather-card.css
-// css/components/profile-card.css
-// css/components/tool-card.css
-// css/components/tools-section.css
