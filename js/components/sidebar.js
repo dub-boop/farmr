@@ -4,8 +4,8 @@ const mainContent = document.getElementById('main-content'); // Added mainConten
 const sidebarNav = document.getElementById('sidebarNav');
 
 const navigationItems = [
-    { icon: 'bi bi-grid-1x2-fill', text: 'Dashboard' }, // Updated icon class
-    { icon: 'bi bi-tractor', text: 'My Farm' }, // Updated icon class
+    { icon: 'bi bi-house', text: 'Farm House' }, // Updated icon class
+    { icon: 'bi bi-person-circle', text: 'User Profile' }, // Updated icon class
     { icon: 'bi bi-cloud-sun', text: 'Weather' }, // Updated icon class
     { icon: 'bi bi-people', text: 'Cooperatives' }, // Updated icon class
 ];
@@ -22,18 +22,6 @@ function renderSidebarNav() {
 function initializeSidebar() {
     renderSidebarNav();
 
-    // Function to set the initial state and handle resize
-    function setInitialState() {
-        if (window.innerWidth <= 768) {
-            sidebar.classList.add('hidden'); // Hide sidebar
-            sidebarToggle.innerHTML = '<i class="bi bi-list"></i>'; // Hamburger icon
-            mainContent.style.marginLeft = '0'; // Adjust main content
-        } else {
-            sidebar.classList.remove('hidden'); // Show sidebar
-            sidebarToggle.innerHTML = '<i class="bi bi-x"></i>'; // Close icon (optional)
-            mainContent.style.marginLeft = 'var(--sidebar-width-expanded)'; // Adjust main content
-        }
-    }
 
     // Set initial state on page load
     setInitialState();
@@ -42,11 +30,11 @@ function initializeSidebar() {
     sidebarToggle.addEventListener('click', () => {
         sidebar.classList.toggle('hidden');
         const isOpen = !sidebar.classList.contains('hidden');
-        sidebarToggle.innerHTML = isOpen ? '<i class="bi bi-x"></i>' : '<i class="bi bi-list"></i>';
+        sidebarToggle.innerHTML = isOpen ? (isOpen ? '<i class="bi bi-list"></i>' : '<i class="bi bi-x"></i>') : (isOpen ? '<i class="bi bi-list"></i>' : '<i class="bi bi-x"></i>');
 
         // Adjust main content margin dynamically
         if (isOpen) {
-            mainContent.style.marginLeft = 'var(--sidebar-width-expanded)';
+            mainContent.style.marginLeft = '0';
         } else {
             mainContent.style.marginLeft = '0';
         }

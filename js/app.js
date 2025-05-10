@@ -65,7 +65,7 @@ function initSidebar() {
             mainContent.style.marginLeft = '0'; // Adjust main content
         } else {
             sidebar.classList.remove('hidden'); // Show sidebar
-            sidebarToggle.innerHTML = ''; // Remove icon (or set to a close icon if desired)
+            sidebarToggle.innerHTML = '<i class="bi bi-x"></i>'; // Remove icon (or set to a close icon if desired)
             mainContent.style.marginLeft = 'var(--sidebar-width-expanded)'; // Adjust main content
         }
     }
@@ -77,11 +77,11 @@ function initSidebar() {
     sidebarToggle.addEventListener('click', () => {
         sidebar.classList.toggle('hidden');
         const isOpen = !sidebar.classList.contains('hidden');
-        sidebarToggle.innerHTML = isOpen ? '<i class="bi bi-x"></i>' : '<i class="bi bi-list"></i>';
+        sidebarToggle.innerHTML = isOpen ? (isOpen ? '<i class="bi bi-list"></i>' : '<i class="bi bi-x"></i>') : (isOpen ? '<i class="bi bi-list"></i>' : '<i class="bi bi-x"></i>');
 
         // Adjust main content margin dynamically
         if (isOpen) {
-            mainContent.style.marginLeft = 'var(--sidebar-width-expanded)';
+            mainContent.style.marginLeft = '0';
         } else {
             mainContent.style.marginLeft = '0';
         }
@@ -200,4 +200,5 @@ function renderTools(tools) {
         //       just for navigation, because standard <a> tags with an href
         //       handle navigation automatically when clicked by the browser.
     });
+    
 }

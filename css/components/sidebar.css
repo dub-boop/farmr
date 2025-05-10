@@ -4,7 +4,7 @@
     left: 0;
     height: 100vh;
     width: var(--sidebar-width-expanded, 250px); /* Adjust to your sidebar width */
-    background-color: var(--primary-green, #28a745);
+    background-color: var(--primary-green, #094b18);
     color: var(--primary-text, #fff);
     padding: 1.5rem 1rem;
     display: flex;

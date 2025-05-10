@@ -17,12 +17,6 @@
 
 /* General Layout */
 
-:root {
-    --sidebar-width-expanded: 250px;
-    --primary-green: #094b18;
-    --primary-text: #fff;
-    --background-color: #f8f9fa;
-}
 
 body, html {
     height: 100%;
@@ -32,18 +26,18 @@ body, html {
 .dashboard-container {
     display: flex;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
     overflow: hidden; /* Prevent scrollbars on the container */
 }
 
 .main-content {
     flex-grow: 1;
-    margin-left: var(--sidebar-width-expanded); /* Adjust to match sidebar width */
     overflow-y: auto;
+    overflow-x: hidden; /* Prevent horizontal scroll */
     padding: 2rem;
     background-color: var(--background-color);
     transition: margin-left 0.3s ease; /* Smooth transition for margin */
-}
+    }
 
 /* Hamburger Menu Styles */
 .sidebar-toggle {
@@ -52,11 +46,11 @@ body, html {
     top: 1rem;
     left: 1rem;
     z-index: 1100; /* Ensure it appears above the sidebar */
-    background: none;
+    background-color: #094b18;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--primary-text);
+    color: var(--primary-text, #333);
 }
 
 /* Media Query for Smaller Screens */
