@@ -16,75 +16,57 @@
 @import './components/inputs-management.css';
 
 /* General Layout */
+
+:root {
+    --sidebar-width-expanded: 250px;
+    --primary-green: #094b18;
+    --primary-text: #fff;
+    --background-color: #f8f9fa;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
 .dashboard-container {
-    display: flex; /* Full height of the viewport */
-    overflow: hidden; /* Prevent scrollbars on the container */
+    display: flex;
     width: 100%;
+    min-height: 100vh;
+    overflow: hidden; /* Prevent scrollbars on the container */
 }
 
 .main-content {
-  flex-grow: 1;
-  margin-left: var(--sidebar-width-expanded); /* Adjust to match sidebar width */
-  overflow-y: auto;
-  padding: 2rem;
-  background-color: var(--background-color);
-  transition: margin-left 0.3s ease; /* Smooth transition for margin */
-  width: 100%;
-}
-
-
-.sidebar {
-   position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: var(--sidebar-width-expanded); /* Adjust to your sidebar width */
-    background-color: var(--primary-green);
-    color: var(--primary-text);
-    padding: 1.5rem 1rem;
-    display: flex;
-    flex-direction: column;
-    z-index: 1000; /* Ensure it appears above other elements */
-    overflow-y: auto; /* Allow scrolling within the sidebar */
-    transform: translateX(100); /* Ensure the sidebar is visible by default */
-    transition: transform 0.3s ease, width 0.3s ease; /* Smooth transition for visibility */
-}
-
-.sidebar.hidden {
-    transform: translateX(-100%); /* Hidden state */
+    flex-grow: 1;
+    margin-left: var(--sidebar-width-expanded); /* Adjust to match sidebar width */
+    overflow-y: auto;
+    padding: 2rem;
+    background-color: var(--background-color);
+    transition: margin-left 0.3s ease; /* Smooth transition for margin */
 }
 
 /* Hamburger Menu Styles */
 .sidebar-toggle {
-  display: none;
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  z-index: 1100; /* Ensure it appears above the sidebar */
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
+    display: none; /* Hidden by default on larger screens */
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100; /* Ensure it appears above the sidebar */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-text);
 }
 
-/* Media query for smaller screens */
+/* Media Query for Smaller Screens */
 @media (max-width: 768px) {
- .sidebar {
-        transform: translateX(-100%); /* Hide sidebar by default */
-        width: var(--sidebar-width-expanded); /* Ensure full width when visible */
-    }
-
-    .sidebar.hidden {
-        transform: translateX(-100%); /* Keep hidden when collapsed */
-    }
-
-    .sidebar-toggle {
-        display: fixed; /* Show toggle button */
-        top: 1rem;
-    }
-
     .main-content {
         margin-left: 0; /* No margin when sidebar is hidden */
         width: 100%; /* Full width for main content */
+    }
+
+    .sidebar-toggle {
+        display: block; /* Show hamburger menu */
     }
 }

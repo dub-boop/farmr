@@ -12,35 +12,42 @@
 </head>
 <body>
     <div class="dashboard-container">
+        <!-- Hamburger Menu -->
+        <button id="sidebar-toggle" class="sidebar-toggle" aria-controls="sidebar" aria-expanded="false">
+            <i class="bi bi-list"></i>
+        </button>
+
+        <!-- Sidebar -->
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-header">
                 <img src="assets/logo.png" alt="Farm Management Logo" class="logo" id="sidebar-logo">
-                <button id="sidebar-toggle" class="sidebar-toggle" aria-controls="sidebar" aria-expanded="true">
-                    <i id="toggle-icon" class="bi bi-list"></i>
-                    <span class="visually-hidden">Toggle Sidebar</span>
-                </button>
             </div>
             <nav class="sidebar-nav">
                 <a href="#" class="nav-link active">
-                    <i class="bi bi-grid-1x2-fill"></i> <span class="nav-text">Dashboard</span>
+                    <i class="bi bi-house"></i> <span class="nav-text">Dashboard</span>
                 </a>
                 <a href="#" class="nav-link">
-                    <i class="bi bi-tractor"></i> <span class="nav-text">My Farm</span>
+                    <i class="bi person-circle"></i> <span class="nav-text">My Farm</span>
                 </a>
                 <a href="#" class="nav-link">
                     <i class="bi bi-cloud-sun"></i> <span class="nav-text">Weather</span>
                 </a>
                 <a href="#" class="nav-link">
-                   <i class="bi bi-people"></i> <span class="nav-text">Cooperatives</span>
+                    <i class="bi bi-people"></i> <span class="nav-text">Cooperatives</span>
                 </a>
-                </nav>
-            <div class="sidebar-footer">
+                <a href="#" class="nav-link">
+                    <i class="bi bi-people"></i> <span class="nav-text">User Profile</span>
+                </a>
                  <a href="#" class="nav-link">
+                    <i class="bi bi-people"></i> <span class="nav-text">User Profile</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="nav-link">
                     <i class="bi bi-gear"></i> <span class="nav-text">Settings</span>
                 </a>
             </div>
         </aside>
-
         <main id="main-content" class="main-content">
             <header class="main-header">
                 <h2 id="greeting" class="greeting">Loading...</h2>

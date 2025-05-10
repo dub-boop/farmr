@@ -210,21 +210,43 @@ function renderTools(tools) {
     });
         
     // JavaScript to handle the toggle functionality//
-    document.addEventListener("DOMContentLoaded", () => {
-        const sidebarToggle = document.getElementById("sidebar-toggle");
-        const sidebar = document.getElementById("sidebar");
-        const toggleIcon = document.getElementById("toggle-icon");
-    
-        sidebarToggle.addEventListener("click", () => {
-            const isExpanded = sidebarToggle.getAttribute("aria-expanded") === "true";
-            sidebarToggle.setAttribute("aria-expanded", !isExpanded);
-            sidebar.classList.toggle("hidden");
-    
-            // Change icon based on state
-            toggleIcon.classList.toggle("bi-list");
-            toggleIcon.classList.toggle("bi-x");
-        });
+   document.addEventListener('DOMContentLoaded', () => {
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.getElementById('main-content');
+
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('hidden');
+        const isOpen = !sidebar.classList.contains('hidden');
+        sidebarToggle.innerHTML = isOpen ? '<i class="bi bi-x"></i>' : '<i class="bi bi-list"></i>';
+
+        // Adjust main content margin dynamically
+        if (isOpen) {
+            mainContent.style.marginLeft = 'var(--sidebar-width-expanded)';
+        } else {
+            mainContent.style.marginLeft = '0';
+        }
     });
+
+    // Set initial state based on screen size
+    function setInitialState() {
+        if (window.innerWidth <= 768) {
+            sidebar.classList.add('hidden');
+            sidebarToggle.innerHTML = '<i class="bi bi-list"></i>';
+            mainContent.style.marginLeft = '0';
+        } else {
+            sidebar.classList.remove('hidden');
+            sidebarToggle.innerHTML = '<i class="bi bi-list"></i>'; // or any other default icon
+            mainContent.style.marginLeft = 'var(--sidebar-width-expanded)';
+        }
+    }
+
+    // Call setInitialState on load
+    setInitialState();
+
+    // Call setInitialState on resize
+    window.addEventListener('resize', setInitialState);
+});
 }
 
 

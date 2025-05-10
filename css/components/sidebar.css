@@ -1,146 +1,75 @@
 .sidebar {
-    width: var(--sidebar-width-expanded);
-    background-color: var(--primary-green);
-    color: var(--primary-text);
-    padding: 1.5rem 1rem; /* Adjust padding */
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, width 0.3s ease;
-    flex-shrink: 0; /* Prevent shrinking */
-    height: 100vh; /* Full height */
-    position: fixed; /* Ensure it stays fixed on the screen */
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000; /* Ensure it appears above other elements */
-    overflow-y: auto; /* Allow scrolling within the sidebar */
-    transform: translateX(100);
-}
-
-.sidebar.collapsed {
-    width: var(--sidebar-width-collapsed);
-    transform: translateX(-100%); /* Hide sidebar when collapsed */
-}
-
-.sidebar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-    padding: 0 0.5rem; /* Padding within header */
-}
-
-.sidebar.collapsed .sidebar-header {
-    justify-content: center; /* Center toggle button when collapsed */
-}
-
-.logo {
-    height: 40px;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.sidebar.collapsed .logo {
-    opacity: 0;
-    visibility: hidden;
-    position: absolute; /* Prevent it taking space */
-}
-
-.sidebar-toggle {
-    color: var(--primary-text);
-    font-size: 1.5rem; /* Make icon larger */
-    background: none;
-    border: none;
-    padding: 0.5rem; /* Easier click target */
-    margin-left: auto; /* Push toggle right when logo visible */
-    cursor: pointer;
-    display: fixed; /* Hide by default */
-}
-
-.sidebar.collapsed .sidebar-toggle {
-    margin-left: 0;
-}
-
-
-.sidebar-nav {
-    flex-grow: 1; /* Takes available space */
+    height: 100vh;
+    width: var(--sidebar-width-expanded, 250px); /* Adjust to your sidebar width */
+    background-color: var(--primary-green, #28a745);
+    color: var(--primary-text, #fff);
+    padding: 1.5rem 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem; /* Space between nav items */
+    z-index: 1000; /* Ensure it appears above other elements */
+    overflow-y: auto; /* Allow scrolling within the sidebar */
+    transition: transform 0.3s ease, width 0.3s ease; /* Smooth transition for visibility */
+}
+
+/* Hidden Sidebar */
+.sidebar.hidden {
+    transform: translateX(-100%); /* Move sidebar off-screen */
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .nav-link {
     display: flex;
     align-items: center;
-    padding: 0.8rem 1rem; /* Consistent padding */
+    padding: 0.8rem 1rem;
     border-radius: 6px;
-    color: var(--secondary-text);
-    transition: background-color 0.2s ease, color 0.2s ease;
-    white-space: nowrap; /* Prevent text wrapping */
-    overflow: hidden; /* Hide text when collapsing */
+    color: var(--primary-text);
+    text-decoration: none;
 }
 
 .nav-link i {
-    font-size: 1.25rem; /* Icon size */
-    margin-right: 1rem; /* Space between icon and text */
-    flex-shrink: 0; /* Prevent icon shrinking */
-    width: 24px; /* Fixed width for alignment */
-    text-align: center; /* Center icon */
-    transition: margin-right 0.3s ease;
+    font-size: 1.25rem;
+    margin-right: 1rem;
 }
-
-
-.sidebar.collapsed .nav-link i {
-    margin-right: 0; /* Remove margin when collapsed */
-}
-
-.nav-link .nav-text {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
-}
-
-
-.sidebar.collapsed .nav-link .nav-text {
-    opacity: 0;
-    visibility: hidden;
-}
-
 
 .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    color: var(--primary-text);
 }
 
 .nav-link.active {
     background-color: rgba(255, 255, 255, 0.2);
-    color: var(--primary-text);
-    font-weight: 500;
+    font-weight: bold;
 }
 
+/* Sidebar Footer */
 .sidebar-footer {
-    margin-top: auto; /* Push footer to bottom */
+    margin-top: auto;
 }
 
-/* Media Query for Mobile Responsiveness */
+/* Media Query for Smaller Screens */
 @media (max-width: 768px) {
     .sidebar {
-        transform: translateX(-100%); /* Hide sidebar by default on smaller screens */
-        width: var(--sidebar-width-expanded); /* Ensure full width when visible */
+        transform: translateX(-100%); /* Hide sidebar by default */
     }
 
-    .sidebar.collapsed {
-        transform: translateX(-100%); /* Keep hidden when collapsed */
-    }
-
-    .sidebar-toggle {
-        display: fixed; 
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
-        z-index: 1100; /* Ensure it appears above the sidebar */
-    }
-
-    .main-content {
-        margin-left: 0; /* No margin when sidebar is hidden */
-        width: 100%; /* Full width for main content */
+    .sidebar.hidden {
+        transform: translateX(0); /* Keep hidden when collapsed */
     }
 }

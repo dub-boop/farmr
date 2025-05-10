@@ -44,4 +44,15 @@ export function initializeSidebar() {
     } else {
         sidebar.classList.add('sidebar--open'); // Ensure open on desktop initially
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+    const sidebarToggle = document.getElementById("sidebar-toggle");
+    const sidebar = document.getElementById("sidebar");
+
+    sidebarToggle.addEventListener("click", () => {
+        sidebar.classList.toggle("hidden");
+        const isOpen = !sidebar.classList.contains("hidden");
+        sidebarToggle.innerHTML = isOpen ? '<i class="bi bi-x"></i>' : '<i class="bi bi-list"></i>';
+    });
+});
 }
