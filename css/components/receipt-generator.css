@@ -338,10 +338,77 @@
     .receipt-generator-page {
         padding: 1rem;
     }
+
+    .receipt-generator-page__title {
+        font-size: 1.75rem;
+    }
+
+    .receipt-generator-page__icon {
+        font-size: 1.5rem;
+    }
+
     .card.receipt-generator-card {
         padding: 1.5rem;
     }
+
+    .receipt-generator-card__business-info {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
     .receipt-generator-card__items-grid {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; /* Adjust columns for smaller screens */
+        grid-template-columns: 2fr 1fr 1fr; /* Adjust columns for smaller screens */
+    }
+
+    .receipt-generator-card__items-grid--header {
+        display: none; /* Hide header on smaller screens */
+    }
+
+    .receipt-generator-card__items-grid > * {
+        margin-bottom: 0.5rem;
+    }
+
+    .receipt-generator-card__totals-section {
+        align-items: center; /* Center align totals */
+    }
+
+    .receipt-generator-card__totals {
+        align-items: center; /* Center align totals */
+    }
+
+    .receipt-generator-card__payment {
+        align-items: center; /* Center align payment */
+    }
+
+    .receipt-generator-card__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .receipt-generator-card__generate-button {
+        width: 100%;
+    }
+
+    .rejected-documents-section {
+        padding: 10px;
+    }
+
+    .rejected-documents-section__title {
+        font-size: 1.2rem;
+    }
+
+    .rejected-documents-section__tab-list {
+        flex-direction: column;
+    }
+
+    .rejected-documents-section__tab-button {
+        padding: 8px 12px;
+        text-align: center;
+        border-bottom: none !important;
+    }
+
+    .rejected-documents-section__table th,
+    .rejected-documents-section__table td {
+        padding: 6px 8px;
+        font-size: 0.8rem;
     }
 }

@@ -151,3 +151,101 @@
 .button:hover {
     opacity: 0.9;
 }
+
+@media (max-width: 768px) {
+    .livestock-records-page {
+        padding: 10px;
+    }
+
+    .livestock-records-page__title {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    .livestock-records-page__content {
+        padding: 10px;
+    }
+
+    .livestock-records-page__table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow-x: auto; /* Enable horizontal scrolling */
+        display: block;
+    }
+
+    .livestock-records-page__table thead {
+        display: none; /* Hide thead on small screens */
+    }
+
+    .livestock-records-page__table tbody {
+        display: block;
+    }
+
+    .livestock-records-page__table tr {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .livestock-records-page__table th,
+    .livestock-records-page__table td {
+        border: none;
+        padding: 8px;
+        text-align: left;
+        white-space: normal; /* Allow text to wrap */
+        font-size: 0.8em;
+        display: block; /* Make them block-level elements */
+    }
+
+    .livestock-records-page__table td:before {
+        content: attr(data-label) ": "; /* Add data-label content before each cell */
+        font-weight: bold;
+        display: inline-block;
+        width: 120px; /* Adjust width as needed */
+    }
+
+    .livestock-records-page__table th {
+        background-color: #f0f0f0;
+    }
+
+    .livestock-records-page__table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .livestock-records-page__table tbody tr:hover {
+        background-color: #e9e9e9;
+    }
+
+    .livestock-records-page__table .actions-cell .edit-btn {
+        padding: 4px 8px;
+        font-size: 0.75em;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .form-group label {
+        font-size: 0.9em;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="date"],
+    .form-group input[type="number"],
+    .form-group select {
+        width: 100%;
+        padding: 6px;
+        font-size: 0.9em;
+    }
+
+    .button {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+}

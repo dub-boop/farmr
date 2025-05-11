@@ -140,3 +140,53 @@
 .show-section {
     display: block; /* Or flex, grid depending on desired layout */
 }
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .animal-records-page {
+        padding: 10px;
+    }
+
+    .animal-records-page__title {
+        font-size: 2em;
+    }
+
+    .animal-records-page__filter {
+        margin-bottom: 15px;
+    }
+
+    .animal-records-page__filter-label {
+        font-size: 1.1em;
+    }
+
+    .animal-records-page__dropdown {
+        width: 100%; /* Make dropdown full width on smaller screens */
+    }
+
+    .animal-records-page__dropdown-button {
+        font-size: 0.9em;
+    }
+
+    .animal-records-page__card-grid {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+        max-width: 100%; /* Allow full width */
+        padding: 0 10px; /* Add some padding to the sides */
+    }
+
+    .animal-records-page__card {
+        padding: 15px;
+    }
+
+    .animal-records-page__card-title {
+        font-size: 1.3em;
+    }
+
+    .animal-records-page__card-description {
+        font-size: 0.95em;
+    }
+
+    .animal-records-page__button {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+}

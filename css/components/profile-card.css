@@ -29,3 +29,27 @@
 .profile-view-btn {
     margin-top: 1.5rem; /* Space above button */
 }
+
+@media (max-width: 768px) {
+    .profile-card {
+        padding: 1rem;
+    }
+
+    .profile-image {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 0.75rem;
+    }
+
+    .profile-name {
+        font-size: 1.1rem;
+    }
+
+    .profile-card p {
+        font-size: 0.8rem;
+    }
+
+    .profile-view-btn {
+        margin-top: 1rem;
+    }
+}

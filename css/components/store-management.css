@@ -83,3 +83,43 @@
 .store-management-card__button--yellow:hover {
     background-color: #eab308;
 }
+
+@media (max-width: 768px) {
+    .store-management-page {
+        padding: 16px;
+    }
+
+    .store-management-page__title {
+        font-size: 1.75rem;
+        margin-bottom: 16px;
+    }
+
+    .store-management-page__grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .store-management-card {
+        padding: 16px;
+    }
+
+    .store-management-card__title {
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+    }
+
+    .store-management-card__badge {
+        font-size: 0.7rem;
+        padding: 3px 6px;
+    }
+
+    .store-management-card__description {
+        font-size: 0.75rem;
+        margin-bottom: 12px;
+    }
+
+    .store-management-card__button {
+        padding: 8px 12px;
+        font-size: 0.875rem;
+    }
+}

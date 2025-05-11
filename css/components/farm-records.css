@@ -1,7 +1,7 @@
 .farm-records-section {
-    padding: 2rem;
+    padding: 0;
     background-color: #f3f4f6; /* Equivalent of bg-gray-100 */
-    margin-top: 2rem; /* Add some spacing from the previous section */
+    margin-top: 0; /* Add some spacing from the previous section */
 }
 
 .farm-records-section__title {
@@ -16,7 +16,7 @@
     background-color: white; /* Equivalent of bg-white */
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Approximate for shadow-lg */
     border-radius: 0.5rem; /* Approximate for rounded-xl */
-    padding: 1.5rem; /* Approximate for p-6 */
+    padding: 2.5rem; /* Approximate for p-6 */
 }
 
 .farm-records-card__grid {
@@ -136,7 +136,7 @@
 
 @media (max-width: 768px) {
     .farm-records-section {
-        padding: 1rem;
+        padding: 0;
     }
 
     .farm-records-section__title {
@@ -149,8 +149,21 @@
         gap: 1rem;
     }
 
+    .farm-records-card__item {
+        padding: 1rem;
+    }
+
     .farm-records-card__item--col-span-2 {
         grid-column: span 1;
+    }
+
+    .farm-records-card__item-title {
+        font-size: 1rem;
+    }
+
+    .farm-records-card__item-description {
+        font-size: 0.75rem;
+        box-sizing: content-box;
     }
 
     .farm-records-card__item-button {

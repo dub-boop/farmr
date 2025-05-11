@@ -104,3 +104,43 @@
     margin-top: 20px;
     display: none;
 }
+
+@media (max-width: 768px) {
+    .pest-detection-page {
+        padding: 10px;
+    }
+
+    .pest-detection-page__title {
+        font-size: 2em;
+    }
+
+    .pest-detection-page__description {
+        font-size: 0.9em;
+    }
+
+    .pest-detection-page__card {
+        padding: 15px;
+        width: 100%;
+    }
+
+    .pest-detection-page__card-title {
+        font-size: 1.1em;
+    }
+
+    .pest-detection-page__image-preview {
+        max-width: 100%;
+    }
+
+    .pest-detection-page__button {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+
+    .pest-detection-page__diagnosis-title {
+        font-size: 1.3em;
+    }
+
+    .pest-detection-page__resources-title {
+        font-size: 1.1em;
+    }
+}

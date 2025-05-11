@@ -29,7 +29,7 @@
     margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 95%;
+    width: 100%;
     max-width: 1000px;
     box-sizing: border-box;
 }
@@ -203,4 +203,100 @@
 
 .inputs-management-page__delete-button:hover {
     background-color: #b91c1c; /* Red-700 */
+}
+
+@media (max-width: 768px) {
+    .inputs-management-page {
+        padding: 0;
+        margin: 10;
+    }
+
+    .inputs-management-page__title {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .inputs-management-page__title .fa-shopping-cart {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .inputs-management-page__card {
+        padding: 15px;
+        margin-bottom: 15px;
+        box-sizing: content-box;
+    }
+
+    .inputs-management-page__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .inputs-management-page__actions > * {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .inputs-management-page__search-input {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .inputs-management-page__table {
+        border: none;
+    }
+
+    .inputs-management-page__table thead {
+        display: none;
+    }
+
+    .inputs-management-page__table tbody tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    .inputs-management-page__table td {
+        display: block;
+        padding: 5px 0;
+        border-bottom: none;
+        text-align: left;
+    }
+
+    .inputs-management-page__table td:before {
+        content: attr(data-header) ": ";
+        font-weight: bold;
+        display: inline-block;
+        width: auto;
+        min-width: 120px;
+    }
+
+    .inputs-management-page__table td:last-child {
+        text-align: left;
+    }
+
+    .inputs-management-page__input-field,
+    .inputs-management-page__select-field {
+        margin-bottom: 10px;
+    }
+
+    .inputs-management-page__modal-content {
+        width: 90%;
+        margin: 20% auto;
+        padding: 15px;
+    }
+
+    .inputs-management-page__modal-title {
+        font-size: 1.5rem;
+    }
+
+    .inputs-management-page__modal-footer {
+        flex-direction: column;
+        gap: 5px;
+    }
 }

@@ -145,3 +145,90 @@ th {
     color: #dc3545;
     font-size: 1.2em;
 }
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        padding: 10px;
+        width: 100%;
+    }
+
+    .add-button-container {
+        text-align: center;
+    }
+
+    .add-button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .delete-button {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .new-item-row input[type="text"],
+    .new-item-row input[type="number"],
+    .new-item-row input[type="date"] {
+        width: 90%;
+        padding: 6px;
+        margin: 5px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        border-radius: 4px;
+    }
+
+    .confirm-button, .cancel-button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .error-message {
+        font-size: 0.7em;
+    }
+
+    .add-actions {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        align-items: center;
+    }
+
+    .cancel-icon {
+        font-size: 1em;
+    }
+}

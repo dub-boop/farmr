@@ -35,3 +35,33 @@
     gap: 1.5rem; /* Space between cards */
     margin-bottom: 2rem;
 }
+
+@media (max-width: 768px) {
+    .weather-card {
+        padding: 1rem;
+    }
+
+    .weather-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .temperature {
+        font-size: 2rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .weather-card p {
+        font-size: 0.85rem;
+    }
+
+    .weather-card p small {
+        font-size: 0.7rem;
+        margin-top: 0.25rem;
+    }
+
+    .weather-profile-section {
+        grid-template-columns: 1fr; /* Stack on smaller screens */
+        gap: 1rem;
+    }
+}
