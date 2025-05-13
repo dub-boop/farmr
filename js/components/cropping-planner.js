@@ -500,8 +500,8 @@ document.addEventListener('DOMContentLoaded', () => {
         currentView = currentView === 'table' ? 'calendar' : 'table';
         toggleViewText.textContent = currentView === 'table' ? 'Calendar View' : 'Table View';
         toggleViewBtn.querySelector('i').classList.replace(
-            currentView === 'table' ? 'fa-solid fa-table' : 'fa-solid fa-calendar-days',
-            currentView === 'table' ? 'fa-solid fa-calendar-days' : 'fa-solid fa-table'
+            currentView === 'table' ? 'fa-table' : 'fa-calendar-days',
+            currentView === 'table' ? 'fa-calendar-days' : 'fa-table'
         );
         renderCurrentView(); // Render the new view
     });
