@@ -298,6 +298,9 @@
         padding: 10px;
         margin-left: 0;
         margin-right: 0;
+        overflow-x: scroll;
+        box-sizing: border-box;
+        width: 100%;
     }
 
     .cropping-planner-page__title {
@@ -333,6 +336,7 @@
         overflow-x: auto;
         white-space: nowrap;
         width: 100%;
+        box-sizing: border-box;
     }
 
     .cropping-planner-page__table th,
