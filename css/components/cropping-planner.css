@@ -1,0 +1,355 @@
+/* css/components/cropping-planner.css */
+.cropping-planner-page {
+    padding: 20px;
+    background-color: #f7f7f7;
+    min-height: 100vh;
+    font-family: sans-serif;
+}
+
+.cropping-planner-page__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cropping-planner-page__title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.cropping-planner-page__actions {
+    display: flex;
+    gap: 10px;
+}
+
+.cropping-planner-page__button {
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex; /* Use flex to align icon and text */
+    align-items: center;
+    border: 1px solid transparent;
+}
+
+.cropping-planner-page__button--primary {
+    background-color: #3b82f6; /* Blue-600 */
+    color: white;
+    border-color: #3b82f6;
+}
+
+.cropping-planner-page__button--primary:hover {
+    background-color: #2563eb; /* Blue-700 */
+}
+
+.cropping-planner-page__button--secondary {
+    background-color: transparent;
+    color: #374151; /* Gray-700 */
+    border-color: #6b7280; /* Gray-600 */
+}
+
+.cropping-planner-page__button--secondary:hover {
+    background-color: #f9fafb; /* Gray-50 */
+}
+
+.cropping-planner-page__button i {
+    margin-right: 5px;
+}
+
+
+.cropping-planner-page__filters {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allow filters to wrap on small screens */
+}
+
+.cropping-planner-page__filter-group label {
+    margin-right: 5px;
+    font-weight: 500;
+    color: #374151; /* Gray-700 */
+}
+
+.cropping-planner-page__select {
+    padding: 8px;
+    border: 1px solid #d1d5db; /* Gray-300 */
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.cropping-planner-page__view-container {
+    margin-top: 20px;
+}
+
+/* Table View */
+.cropping-planner-page__table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #e5e7eb; /* Gray-200 */
+    background-color: #fff; /* White background for table */
+}
+
+.cropping-planner-page__table-header th {
+    background-color: #f3f4f6; /* Gray-100 */
+    color: #374151; /* Gray-700 */
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #d1d5db; /* Gray-300 */
+}
+
+.cropping-planner-page__table td {
+    padding: 10px;
+    border-bottom: 1px solid #e5e7eb; /* Gray-200 */
+    text-align: left;
+}
+
+.cropping-planner-page__table tbody tr:nth-child(even) {
+    background-color: #f9fafb; /* Gray-50 */
+}
+
+.cropping-planner-page__table .actions-cell {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap; /* Allow action buttons to wrap */
+    justify-content: center; /* Center action buttons */
+}
+
+.cropping-planner-page__table .action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px; /* Padding for click area */
+    font-size: 1rem;
+}
+.cropping-planner-page__table .action-btn .fa-eye {
+    color: #3b82f6; /* Blue */
+}
+.cropping-planner-page__table .action-btn .fa-pencil-alt {
+    color: #10b981; /* Green */
+}
+.cropping-planner-page__table .action-btn .fa-trash-can {
+     color: #dc2626; /* Red */
+}
+
+
+/* Calendar View */
+.cropping-planner-page__calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.cropping-planner-page__calendar-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cropping-planner-page__calendar-card h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.cropping-planner-page__calendar-card p {
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 0.95rem;
+}
+.cropping-planner-page__calendar-card p strong {
+     font-weight: 600;
+     color: #333;
+}
+
+.status-active {
+    color: #16a34a; /* Green */
+}
+.status-pending {
+    color: #f59e0b; /* Yellow */
+}
+.status-harvested {
+     color: #dc2626; /* Red */
+}
+
+
+/* Modal Styles (reuse from livestock-records.css or define here) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* Adjust margin for potentially taller form */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px; /* Max width for the modal */
+    border-radius: 8px;
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-footer {
+    margin-top: 20px;
+    text-align: right;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600; /* Match React component boldness */
+    color: #374151; /* Gray-700 */
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d1d5db; /* Gray-300 */
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.cropping-planner-page__error {
+    background-color: #fee2e2; /* Red-100 */
+    color: #dc2626; /* Red-600 */
+    border: 1px solid #fca5a5; /* Red-300 */
+     padding: 10px;
+     border-radius: 4px;
+     font-weight: normal;
+     font-size: 0.9em;
+}
+
+@media (max-width: 600px) {
+    .cropping-planner-page__header {
+        flex-direction: column; /* Stack header items on small screens */
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .cropping-planner-page__actions {
+        width: 100%; /* Make buttons take full width */
+        justify-content: stretch;
+    }
+    .cropping-planner-page__actions button {
+        flex-grow: 1; /* Make buttons fill space */
+        justify-content: center;
+    }
+
+     .cropping-planner-page__filters {
+         flex-direction: column; /* Stack filters */
+         gap: 10px;
+         align-items: flex-start;
+     }
+     .cropping-planner-page__filter-group {
+         width: 100%;
+     }
+      .cropping-planner-page__select {
+          width: 100%;
+      }
+
+    .modal-content {
+         margin: 10% auto; /* Adjust margin */
+         width: 95%; /* Adjust width */
+    }
+}
+
+@media (max-width: 768px) {
+    .cropping-planner-page {
+        padding: 10px;
+    }
+
+    .cropping-planner-page__title {
+        font-size: 1.5em;
+    }
+
+    .cropping-planner-page__actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cropping-planner-page__actions button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .cropping-planner-page__filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cropping-planner-page__filter-group {
+        width: 100%;
+    }
+
+    .cropping-planner-page__select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+   .cropping-planner-page__table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .cropping-planner-page__table th,
+    .cropping-planner-page__table td {
+        padding: 8px;
+        font-size: 0.8em;
+        white-space: nowrap;
+    }
+
+    .cropping-planner-page__calendar-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cropping-planner-page__calendar-card {
+        padding: 15px;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+}
