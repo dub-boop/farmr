@@ -307,7 +307,6 @@
     .cropping-planner-page__actions {
         flex-direction: column;
         width: 100%;
-        margin-left: 0;
     }
 
     .cropping-planner-page__actions button {
