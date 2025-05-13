@@ -14,7 +14,7 @@
 }
 
 .cropping-planner-page__title {
-    font-size: 2rem;
+    font-size: 2em;
     font-weight: bold;
     color: #333;
 }
@@ -28,7 +28,7 @@
     padding: 10px 15px;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1em;
     text-align: center;
     text-decoration: none;
     display: inline-flex; /* Use flex to align icon and text */
@@ -79,7 +79,7 @@
     padding: 8px;
     border: 1px solid #d1d5db; /* Gray-300 */
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 1em;
 }
 
 .cropping-planner-page__view-container {
@@ -124,7 +124,7 @@
     border: none;
     cursor: pointer;
     padding: 5px; /* Padding for click area */
-    font-size: 1rem;
+    font-size: 1em;
 }
 .cropping-planner-page__table .action-btn .fa-eye {
     color: #3b82f6; /* Blue */
@@ -152,7 +152,7 @@
 }
 
 .cropping-planner-page__calendar-card h2 {
-    font-size: 1.3rem;
+    font-size: 1.3em;
     font-weight: 600;
     margin-bottom: 10px;
     color: #333;
@@ -161,7 +161,7 @@
 .cropping-planner-page__calendar-card p {
     margin-bottom: 5px;
     color: #555;
-    font-size: 0.95rem;
+    font-size: 0.95em;
 }
 .cropping-planner-page__calendar-card p strong {
      font-weight: 600;
@@ -296,6 +296,8 @@
 @media (max-width: 768px) {
     .cropping-planner-page {
         padding: 10px;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .cropping-planner-page__title {
@@ -305,6 +307,7 @@
     .cropping-planner-page__actions {
         flex-direction: column;
         width: 100%;
+        margin-left: 0;
     }
 
     .cropping-planner-page__actions button {
@@ -330,6 +333,7 @@
         display: block;
         overflow-x: auto;
         white-space: nowrap;
+        width: 100%;
     }
 
     .cropping-planner-page__table th,
