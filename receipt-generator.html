@@ -129,7 +129,35 @@
             <div class="receipt-generator-card__actions">
                 <button id="generateBtn" class="receipt-generator-card__generate-button">Generate Document</button>
             </div>
-            
+           
+<div id="addItemModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="addItemModalClose">&times;</span>
+        <h2>Add New Item</h2>
+        <div class="form-group">
+            <label for="newItemName">Item Name:</label>
+            <input type="text" id="newItemName" class="receipt-generator-card__input">
+        </div>
+        <div class="form-group">
+            <label for="newItemUnit">Unit:</label>
+            <select id="newItemUnit" class="receipt-generator-card__select">
+                <option>kg</option>
+                <option>liters</option>
+                <option>pieces</option>
+                <option>bags</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="newItemUnitPrice">Unit Price:</label>
+            <input type="number" id="newItemUnitPrice" class="receipt-generator-card__input" value="0">
+        </div>
+        <div class="form-group">
+            <label for="newItemQuantity">Quantity:</label>
+            <input type="number" id="newItemQuantity" class="receipt-generator-card__input" value="1">
+        </div>
+        <button id="addItemModalBtn" class="button button--primary">Add Item</button>
+    </div>
+</div>
             <section class="rejected-documents-section">
                 <h2 class="rejected-documents-section__title">Rejected Receipts & Invoices</h2>
                 <div class="rejected-documents-section__tabs">
