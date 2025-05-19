@@ -14,6 +14,11 @@
 @import './components/pest-disease.css';
 @import './components/satellite-drone.css';
 @import './components/inputs-management.css';
+@import './components/settings.css';
+@import './components/animal-records.css';
+@import './components/cropping-planner.css';
+@import './components/footer.css';
+
 
 /* General Layout */
 

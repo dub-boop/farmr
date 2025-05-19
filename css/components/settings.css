@@ -1,0 +1,363 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-width: fit-content;
+}
+
+.main-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    padding: 2rem;
+    background-color: var(--background-color);
+    transition: margin-left 0.3s ease; /* Smooth transition for margin */
+    box-sizing: border-box;
+    min-width: 80%; /* Prevents overflow */
+    margin-left: 250px;
+    }
+
+/* css/components/settings.css */
+.settings-page {
+    padding: 20px;
+    background-color: #f7f7f7;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between sections/cards */
+    box-sizing: border-box;
+    min-height: 100vh; /* Ensure it takes full height */
+    width: 100%; /* Full width */
+    max-width: none;
+    margin: 0; /* Reset margin */
+}
+
+.settings-page__title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px; /* Adjust margin since gap handles spacing */
+}
+
+.settings-page__card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.settings-page__card-title {
+    font-size: 1.5em;
+    font-weight: 600; /* Match React component boldness */
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.settings-page__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    margin-bottom: 15px; /* Space before button if any */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px; /* Space below label */
+    font-weight: 500;
+    color: #374151; /* Gray-700 */
+}
+
+.settings-page__input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db; /* Gray-300 */
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.settings-page__input-file {
+     /* Basic styling for file input */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db; /* Gray-300 */
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: #f9fafb; /* Light background */
+}
+
+.settings-page__select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db; /* Gray-300 */
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+
+.settings-page__button {
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid transparent;
+    margin-top: 10px; /* Space above button */
+}
+
+.settings-page__button--primary {
+    background-color: #3b82f6; /* Blue-600 */
+    color: white;
+    border-color: #3b82f6;
+}
+
+.settings-page__button--primary:hover {
+    background-color: #2563eb; /* Blue-700 */
+}
+
+.settings-page__button--secondary {
+    background-color: transparent;
+    color: #374151; /* Gray-700 */
+    border-color: #6b7280; /* Gray-600 */
+}
+
+.settings-page__button--secondary:hover {
+    background-color: #f9fafb; /* Gray-50 */
+}
+
+.settings-page__button--destructive {
+    background-color: #dc2626; /* Red-600 */
+    color: white;
+    border-color: #dc2626;
+}
+
+.settings-page__button--destructive:hover {
+    background-color: #b91c1c; /* Red-700 */
+}
+
+.settings-page__button--outline {
+    background-color: transparent;
+    color: #374151; /* Gray-700 */
+    border-color: #d1d5db; /* Gray-300 */
+}
+.settings-page__button--outline:hover {
+     background-color: #f3f4f6; /* Gray-100 */
+}
+
+
+.settings-page__toggle-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+.settings-page__toggle-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.settings-page__toggle-item label {
+    font-weight: normal;
+    color: #333;
+    cursor: pointer;
+    flex-grow: 1; /* Allow label to take space */
+}
+
+/* Basic checkbox styling to mimic a switch */
+.settings-page__switch {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #ccc;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.settings-page__switch::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.settings-page__switch:checked {
+  background: #3b82f6; /* Blue */
+}
+
+.settings-page__switch:checked::before {
+  transform: translateX(20px);
+}
+
+
+.settings-page__permissions {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.settings-page__permissions-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #374151; /* Gray-700 */
+}
+
+.settings-page__permissions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.settings-page__permissions-grid label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+    color: #333;
+    cursor: pointer;
+}
+
+.settings-page__current-team {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.settings-page__current-team-title {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.settings-page__team-list {
+    list-style: none;
+    padding: 0;
+}
+
+.settings-page__team-list li {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.settings-page__team-list li:last-child {
+     border-bottom: none;
+     margin-bottom: 0;
+     padding-bottom: 0;
+}
+
+.settings-page__team-member-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.settings-page__team-member-email {
+    font-weight: 500;
+}
+
+.settings-page__team-member-role {
+    font-size: 0.9em;
+    color: #6b7280; /* Gray-600 */
+}
+
+.settings-page__team-access-list {
+    list-style: disc;
+    padding-left: 20px;
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.settings-page__separator {
+     margin: 30px 0;
+     border: none;
+     height: 1px;
+     background-color: #d1d5db; /* Gray-300 */
+}
+
+.settings-page__account-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hamburger Menu Styles */
+.sidebar-toggle {
+    display: none; /* Hidden by default on larger screens */
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100; /* Ensure it appears above the sidebar */
+    background-color: #094b18;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-text, #333);
+}
+
+/* Styles for when the sidebar is collapsed */
+.app-container.sidebar-collapsed .sidebar {
+    transform: translateX(-100%); /* Hide the sidebar */
+}
+
+.app-container.sidebar-collapsed .main-content {
+    margin-left: 0; /* Main content takes full width */
+}
+
+@media (max-width: 768px) {
+    .settings-page {
+        padding: 10px; /* Adjust padding for smaller screens */
+        gap: 10px; /* Reduce gap between sections/cards */
+        margin: 0; /* Reset margin */
+        width: 100%; /* Full width */
+    }
+     .settings-page__grid {
+        grid-template-columns: 1fr; /* Stack columns on small screens */
+     }
+     .settings-page__permissions-grid {
+         grid-template-columns: 1fr; /* Stack checkboxes */
+     }
+      .settings-page__account-actions {
+          flex-direction: column;
+          gap: 10px;
+          align-items: stretch;
+      }
+       .settings-page__account-actions button {
+           width: 100%; /* Full width buttons */
+       }
+     .main-content {
+        padding: 1rem; /* Adjust padding for smaller screens */
+        margin: 0; /* No margin when sidebar is hidden */
+        display: block; /* Ensure it takes full width */
+        box-sizing: border-box; /* Include padding in width */
+        }
+
+    .sidebar-toggle {
+        display: block; /* Show hamburger menu */
+    }
+    body, html {
+    padding: 0;
+}
+}

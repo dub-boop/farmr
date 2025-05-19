@@ -8,6 +8,7 @@ const navigationItems = [
     { icon: 'bi bi-person-circle', text: 'User Profile' }, // Updated icon class
     { icon: 'bi bi-cloud-sun', text: 'Weather' }, // Updated icon class
     { icon: 'bi bi-people', text: 'Cooperatives' }, // Updated icon class
+    { icon: 'bi bi-gear', text: 'Settings' }, // Updated icon class
 ];
 
 function renderSidebarNav() {
