@@ -13,6 +13,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const movementDateInput = document.getElementById('movementDate');
     const stockOutErrorDiv = document.getElementById('stockOutError');
     const newItemErrorDiv = document.getElementById('newItemError');
+    const newItemModal = document.getElementById('newItemModal'); // Get the new item modal
+    const closeNewItemModalBtn = document.getElementById('closeNewItemModalBtn'); // Get the close new item modal button
+    const saveNewItemBtn = document.getElementById('saveNewItemBtn'); // Get the save new item button
+    const newItemNameInput = document.getElementById('newItemName');
+    const newItemQuantityInput = document.getElementById('newItemQuantity');
+    const newItemUnitSelect = document.getElementById('newItemUnit');
+    const newItemDateOfReceiptInput = document.getElementById('newItemDateOfReceipt');
+    const newItemProductionDateInput = document.getElementById('newItemProductionDate');
+    const newItemBestBeforeInput = document.getElementById('newItemBestBefore');
+
 
     let inventory = [
         { id: 1, item: "Maize Seeds", quantity: 50, unit: "kg", dateOfReceipt: "2025-03-15", productionDate: "2024-12-01", bestBefore: "2025-09-15" },
@@ -145,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     addNewBtn.addEventListener('click', () => {
-        if (!isAddingNew) {
+         if (!isAddingNew) {
             inventory = [...inventory, { id: Date.now(), item: "", quantity: 0, unit: "", dateOfReceipt: "", productionDate: "", bestBefore: "", isNew: true }];
             isAddingNew = true;
             renderInventory();

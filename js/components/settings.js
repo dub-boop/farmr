@@ -352,4 +352,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Initial Load ---
     populateRoleSelect(); // Populate roles dropdown first
     loadSettingsFromLocalStorage(); // Load settings and apply to UI
+    
 });

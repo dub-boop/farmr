@@ -181,7 +181,7 @@
 /* Media query for mobile responsiveness */
 @media screen and (max-width: 768px) {
     .awaiting-confirmation-page {
-        padding: 0px;
+        padding: 10px; /* Reduced padding for smaller screens */
     }
 
     .awaiting-confirmation-page__title {
@@ -213,10 +213,39 @@
         border-right: none !important;
     }
 
-    .awaiting-confirmation-page__table th,
-    .awaiting-confirmation-page__table td {
-        padding: 0;
+    .awaiting-confirmation-page__table {
+        display: block; /* Make table responsive */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        white-space: nowrap; /* Prevent content from wrapping */
         font-size: 0.8rem;
+    }
+
+    .awaiting-confirmation-page__table thead {
+        display: none; /* Hide table header */
+    }
+
+    .awaiting-confirmation-page__table tbody tr {
+        display: block; /* Display each row as a block */
+        margin-bottom: 10px; /* Add spacing between rows */
+        border: 1px solid #ddd; /* Add border to each row */
+        border-radius: 8px; /* Add rounded corners */
+    }
+
+    .awaiting-confirmation-page__table td {
+        display: block; /* Display each cell as a block */
+        border: none; /* Remove cell borders */
+        padding: 5px; /* Reduce padding */
+        text-align: right; /* Align text to the right */
+        position: relative; /* Position relative for label */
+        padding-left: 50%; /* Increase left padding for label */
+    }
+
+    .awaiting-confirmation-page__table td:before {
+        content: attr(data-label); /* Add data-label as content */
+        position: absolute; /* Position label absolutely */
+        left: 5px; /* Position label to the left */
+        text-align: left; /* Align label to the left */
+        font-weight: bold; /* Make label bold */
     }
 
     .awaiting-confirmation-page__action-button {
